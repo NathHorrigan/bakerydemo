@@ -33,7 +33,7 @@ modeladmin_register(NetlifyDeploymentAdmin)
 
 
 def trigger_deployment(**kwargs):
-    if settings.NETLIFY_AUTO_DEPLOY is not False:
+    if settings.NETLIFY_AUTO_DEPLOY:
         revision = kwargs.get('revision')
         deployment = Deployment(deployment_created_by=revision.user)
         deployment.save()
