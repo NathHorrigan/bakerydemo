@@ -5,10 +5,8 @@
     grid-template-columns: 1fr;
     grid-column-gap: 25px;
     grid-row-gap: 25px;
-}
 
-@media screen and (min-width: 800px) {
-    .locations {
+    @include for-tablet-landscape-up {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -44,7 +42,12 @@
     font-size: 3rem;
     margin: 0;
     padding: 20px;
-    background: $accent;
+    font-weight: $light;
+    font-size: 36px;
+
+    @include for-tablet-landscape-up {
+        font-size: 60px;
+    }
 }
 
 .locationMeta {
@@ -80,6 +83,5 @@
     &:hover {
         background-color: $tertiary;
         color: white;
-
     }
 }
