@@ -11,33 +11,35 @@ class Header extends React.Component {
     render() {
         return(
             <header className={styles.header}>
-                
-                <section className={styles.headerTop}>
-                    <Link className={styles.titleLink} to='/'>The Wagtail Bakery</Link>
-                    <form className={styles.search} onSubmit={event => this.submitSearch(event)}>
-                        <input 
-                            onChange={event => this.updateQuery(event.target.value)}
-                            className={styles.searchBar} 
-                            placeholder="Search the site..." />
-                        <FontAwesomeIcon
-                            className={styles.searchIcon}
-                            icon={faSearch}
-                            onClick={() => this.submitSearch()} />
-                    </form>
-                </section>
-                
-                <nav className={styles.nav}>
-                    { (this.props.links || []).map(link => (
-                        <Link 
-                            className={styles.navLink} 
-                            activeClassName={styles.navLinkActive}  
+                <div className={styles.container}>
+
+                    <section className={styles.headerTop}>
+                        <Link className={styles.titleLink} to='/'>The Wagtail Bakery</Link>
+                        <form className={styles.search} onSubmit={event => this.submitSearch(event)}>
+                            <input
+                                onChange={event => this.updateQuery(event.target.value)}
+                                className={styles.searchBar}
+                                placeholder="Search the site..." />
+                            <FontAwesomeIcon
+                                className={styles.searchIcon}
+                                icon={faSearch}
+                                onClick={() => this.submitSearch()} />
+                        </form>
+                    </section>
+
+                    <nav className={styles.nav}>
+                        { (this.props.links || []).map(link => (
+                            <Link
+                            className={styles.navLink}
+                            activeClassName={styles.navLinkActive}
                             key={link.url}
                             to={link.url}>
-                                {link.label}
-                        </Link>
-                    )) }
-                </nav>
-            
+                                    {link.label}
+                            </Link>
+                        )) }
+                    </nav>
+
+                </div>
             </header>
         )
     }

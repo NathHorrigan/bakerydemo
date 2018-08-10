@@ -6,26 +6,28 @@ import Link from 'gatsby-link'
 export default ({data}) => {
   const breads = data.allPage.edges
   return (
-    <article className={styles.page}>
-      <div className={styles.pageContent}>
-        <header className={styles.pageHeader}>
-          <h1>Breads</h1>
-          <p>We feature outlandishly delicious breads sourced from every continent (except Antarctica).</p>
-        </header>
-        <section className={styles.cardContainer}>
-          {breads.map(({node}) => {
-            return (
-              <Link to={node.slug} key={node.id} className={styles.link}>
-                <Card
-                  key={node.id}
-                  bread={node}
-                  styles={styles}/>
-              </Link>
-            )
-          })}
-        </section>
-      </div>
-    </article>
+    <div className={styles.container}>
+        <article className={styles.page}>
+        <div className={styles.pageContent}>
+            <header className={styles.pageHeader}>
+            <h1>Breads</h1>
+            <p>We feature outlandishly delicious breads sourced from every continent (except Antarctica).</p>
+            </header>
+            <section className={styles.cardContainer}>
+            {breads.map(({node}) => {
+                return (
+                <Link to={node.slug} key={node.id} className={styles.link}>
+                    <Card
+                    key={node.id}
+                    bread={node}
+                    styles={styles}/>
+                </Link>
+                )
+            })}
+            </section>
+        </div>
+        </article>
+    </div>
   )
 }
 

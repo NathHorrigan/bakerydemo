@@ -8,3 +8,8 @@ body {
         padding-bottom: 0px;
     }
 }
+
+.container {
+    max-width: $site-width;
+    margin: 0 auto;
+}
