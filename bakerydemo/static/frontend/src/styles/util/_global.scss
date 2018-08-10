@@ -3,8 +3,14 @@
 }
 
 body {
+    font-family: $body;
+    line-height: 1.4;
     padding-bottom: 40px;
+    font-size: 19px;
+    background-color: white;
+
     @include for-tablet-landscape-up {
+        font-size: 22px;
         padding-bottom: 0px;
     }
 }
