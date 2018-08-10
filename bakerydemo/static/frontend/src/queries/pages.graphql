@@ -55,7 +55,6 @@
         }
       }
 
-
       ... on StandardPage {
         id
         title
@@ -63,6 +62,18 @@
         urlPath
         introduction
         body
+      }
+
+      ... on BlogPage {
+        id
+        title
+        slug
+        urlPath
+        introduction
+        body
+        image {
+          file
+        }
       }
 
       ... on Page {

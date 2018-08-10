@@ -1,0 +1,12 @@
+@import '../../styles/main';
+
+.blog {
+    position: relative;
+}
+
+.blogContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    margin: 2rem 0;
+}
