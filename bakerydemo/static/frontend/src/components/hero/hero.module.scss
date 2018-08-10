@@ -8,15 +8,8 @@
     margin-bottom: 2rem;
 }
 
-.heroMeta {
-    position: absolute;
-    bottom: 4rem;
-    left: 4rem;
+.heroTitle {
     color: white;
-    font-size: 2rem;
-
-    &Title {
-        background-color: $accent;
-        padding: 20px;
-    }
+    position: absolute;
+    bottom: 20px;
 }
