@@ -19,7 +19,7 @@
 .cardImage {
     width: 180px;
     height: 180px;
-    transition: opacity $transition;
+    transition: opacity $quick-transition;
 
     &:hover {
         opacity: 0.3;
