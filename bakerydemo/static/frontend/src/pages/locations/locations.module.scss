@@ -52,3 +52,34 @@
     font-size: 1.5rem;
     font-weight: 200;
 }
+
+.locationAddress {
+    font-weight: $light;
+    font-family: $brand;
+    font-size: 1.4em;
+    padding: 10px 40px;
+    text-align: center;
+    margin: 10px 0 20px;
+}
+
+.locationButton {
+    background-color: $accent;
+    color: white;
+    display: block;
+    font-weight: $light;
+    letter-spacing: 0.15em;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: $brand;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 0 auto;
+    max-width: 40px;
+
+    &:hover {
+        background-color: $tertiary;
+        color: white;
+
+    }
+}

@@ -17,12 +17,16 @@ export default ({data}) => {
 
           <section className={styles.locations}>
             {locations.map(({node}) => (
-              <Link to={node.slug} key={node.id}>
-                <div className={styles.locationImageContainer}>
-                  <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)}/>
-                  <h3 className={styles.locationHeader}>{node.title}</h3>
-                </div>
-              </Link>
+              <div key={node.id}>
+                <Link to={node.slug}>
+                  <div className={styles.locationImageContainer}>
+                    <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)}/>
+                    <h3 className={styles.locationHeader}>{node.title}</h3>
+                  </div>
+                </Link>
+                <address className={styles.locationAddress}>{node.address}</address>
+                <a className={styles.locationButton} href={`https://google.com/maps/?q=${node.latLong}`} target="_blank">Map</a>
+              </div>
             ))}
           </section>
         </div>
@@ -40,6 +44,7 @@ export const query = graphql`
                     title
                     slug
                     address
+                    latLong
                     image {
                         file {
                             original
