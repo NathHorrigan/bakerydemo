@@ -77,14 +77,14 @@
         text-decoration: none;
         text-transform: uppercase;
         color: white;
-        
+
         &:hover {
             color: $accent;
             background-color: transparent;
             border-top: 1px solid $accent;
             font-weight: 400;
         }
-        
+
         &Active {
             color: $accent;
             background-color: transparent;
