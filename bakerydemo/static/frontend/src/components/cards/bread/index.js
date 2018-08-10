@@ -6,7 +6,9 @@ import styles from './card.module.scss'
 export default ({ bread: {title, origin, breadType, image}}) => {
     return (
         <div className={styles.card}>
-            <img className={styles.cardImage} src={getMediaUrl(image.file.thumbnail)} alt=""/>
+            <div className={styles.cardImageContainer}>
+                <img className={styles.cardImage} src={getMediaUrl(image.file.thumbnail)} alt=""/>
+            </div>
             <div className={styles.cardContent}>
                 <h2 className={styles.cardTitle}>{title}</h2>
                 <div className={styles.cardMeta}>

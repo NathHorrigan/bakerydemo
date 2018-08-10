@@ -3,6 +3,7 @@ $fa-font-path:   "../font";
 // Colors:
 $primary: rgb(25,17,18);
 $secondary: #63210d;
+$tertiary: #eb7400;
 $accent: #d4566b;
 $mid-grey: #777;
 
@@ -20,3 +21,6 @@ $book: 900;
 $bold: 700;
 $semi-bold: 600;
 $light: 300;
+
+// Transitions:
+$transition: 0.25s ease;
