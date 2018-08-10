@@ -13,11 +13,11 @@ export default ({ bread: {title, origin, breadType, image}}) => {
                 <h2 className={styles.cardTitle}>{title}</h2>
                 <div className={styles.cardMeta}>
                     <span className={styles.cardMetaRow}>
-                        <span className={styles.cardMetaLabel}>Origin</span> 
+                        <span className={styles.cardMetaLabel}>Origin</span>
                         <span>{origin.title}</span>
                     </span>
                     <span className={styles.cardMetaRow}>
-                        <span className={styles.cardMetaLabel}>Type</span> 
+                        <span className={styles.cardMetaLabel}>Type</span>
                         <span>{breadType.title}</span>
                     </span>
                 </div>
