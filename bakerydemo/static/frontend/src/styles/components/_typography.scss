@@ -10,16 +10,20 @@ h1 {
     font-weight: $light;
 
     @include for-tablet-landscape-up {
+        line-height: 1.2;
         font-size: 60px;
+        margin-bottom: 10px;
     }
 }
 
 h2, h3 {
     font-weight: $bold;
+    color: $secondary;
 }
 
 h4 {
     font-weight: $semi-bold;
+    color: $secondary;
 }
 
 p {
