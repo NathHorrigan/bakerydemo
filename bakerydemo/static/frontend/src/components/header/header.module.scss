@@ -72,16 +72,19 @@
         font-size: 16px;
         margin-right: 25px;
         padding-top: 5px;
-        font-family: $body;
+        font-family: $brand;
+        font-weight: $light;
         text-decoration: none;
         text-transform: uppercase;
         color: white;
+        letter-spacing: 0.15em;
+        border-top: 1px solid transparent;
+        transition: border, color, $quick-transition;
 
         &:hover {
             color: $accent;
             background-color: transparent;
             border-top: 1px solid $accent;
-            font-weight: 400;
         }
 
         &Active {
