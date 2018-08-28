@@ -9,33 +9,36 @@ export default (props) => {
   console.log(props)
   const bread = props.data.page
   return (
-    <article className={styles.page}>
-      <div className={styles.pageContent}>
-        <header className={styles.pageHeader}>
-          <h1>{bread.title}</h1>
-        </header>
+    <div className={styles.container}>
+        <article className={styles.page}>
+            <div className={styles.pageContent}>
 
-        <section className={styles.breadInfo}>
-          <p className={styles.breadIntro}>{bread.introduction}</p>
-          <div className={styles.breadContent}>
-            <StreamField blocks={bread.body} />
-          </div>
+                <section className={styles.breadInfo}>
+                    <div>
+                        <h1>{bread.title}</h1>
+                        <p className={styles.breadIntro}>{bread.introduction}</p>
+                        <div className={styles.breadContent}>
+                            <StreamField blocks={bread.body} />
+                        </div>
+                    </div>
 
-          <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)}/>
-          <section className={styles.breadMeta}>
-          <span className={styles.breadMetaRow}>
-              <span className={styles.cardMetaLabel}>Origin:</span>
-              <span>{bread.origin.title}</span>
-          </span>
-            <span className={styles.breadMetaRow}>
-              <span className={styles.cardMetaLabel}>Type:</span>
-              <span>{bread.breadType.title}</span>
-          </span>
-          </section>
+                    <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)}/>
 
-        </section>
-      </div>
-    </article>
+                    <section className={styles.breadMeta}>
+                        <span className={styles.breadMetaRow}>
+                            <h4 className={styles.cardMetaLabel}>Origin</h4>
+                            <span>{bread.origin.title}</span>
+                        </span>
+                            <span className={styles.breadMetaRow}>
+                            <h4 className={styles.cardMetaLabel}>Type</h4>
+                            <span>{bread.breadType.title}</span>
+                        </span>
+                    </section>
+
+                </section>
+            </div>
+        </article>
+    </div>
   )
 }
 

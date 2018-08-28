@@ -2,10 +2,28 @@ $fa-font-path:   "../font";
 
 // Colors:
 $primary: rgb(25,17,18);
+$secondary: #63210d;
+$tertiary: #eb7400;
 $accent: #d4566b;
+$dark-grey: #333;
+$mid-grey: #777;
+$light-grey: #e3e3e3;
 
 // Text:
-$brand: 'Alegreya', serif;
-$body: 'Lato', monospace;
+$body: 'Alegreya', serif;
+$brand: 'Lato', monospace;
 
 // Margins:
+
+// Widths:
+$site-width: 1440px;
+
+// Weights:
+$book: 900;
+$bold: 700;
+$regular: 400;
+$light: 300;
+
+// Transitions:
+$transition: 0.25s ease;
+$quick-transition: 0.15s ease;

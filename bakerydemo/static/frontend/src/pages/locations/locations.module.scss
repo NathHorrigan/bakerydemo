@@ -5,10 +5,8 @@
     grid-template-columns: 1fr;
     grid-column-gap: 25px;
     grid-row-gap: 25px;
-}
 
-@media screen and (min-width: 800px) {
-    .locations {
+    @include for-tablet-landscape-up {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -44,11 +42,46 @@
     font-size: 3rem;
     margin: 0;
     padding: 20px;
-    background: $accent;
+    font-weight: $light;
+    font-size: 36px;
+
+    @include for-tablet-landscape-up {
+        font-size: 60px;
+    }
 }
 
 .locationMeta {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 200;
+}
+
+.locationAddress {
+    font-weight: $light;
+    font-family: $brand;
+    font-size: 1.4em;
+    padding: 10px 40px;
+    text-align: center;
+    margin: 10px 0 20px;
+}
+
+.locationButton {
+    background-color: $accent;
+    color: white;
+    display: block;
+    font-weight: $light;
+    letter-spacing: 0.15em;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: $brand;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 0 auto;
+    max-width: 40px;
+
+    &:hover {
+        background-color: $tertiary;
+        color: white;
+    }
 }

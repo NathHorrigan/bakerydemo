@@ -19,17 +19,19 @@ export default ({data}) => {
         tag={''}/>
 
       <div className={styles.pageContent}>
-        <div className={styles.infoContainer}>
+        <div className={styles.container}>
+          <div className={styles.infoContainer}>
 
-          <section className={styles.infoContent}>
-            <StreamField blocks={location.body} />
-          </section>
+            <section className={styles.infoContent}>
+              <StreamField blocks={location.body} />
+            </section>
 
-          <section className={styles.infoOpeningHours}>
-            <h3 className={styles.infoOpeningHoursHeader}>Opening Hours:</h3>
-            {renderWeek(location.hoursOfOperation)}
-          </section>
+            <section className={styles.infoOpeningHours}>
+              <h3 className={styles.infoOpeningHoursHeader}>Opening Hours:</h3>
+              {renderWeek(location.hoursOfOperation)}
+            </section>
 
+          </div>
         </div>
       </div>
 

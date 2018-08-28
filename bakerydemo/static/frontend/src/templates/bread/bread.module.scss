@@ -4,10 +4,14 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 80px;
+    margin-top: 2rem;
 }
 
 .breadIntro {
     grid-column: 1 / span 2;
+    color: $mid-grey;
+    font-size: 1.4em;
+
     @include for-tablet-landscape-up {
         grid-column: 1;
     }
@@ -35,7 +39,6 @@
     @include for-tablet-landscape-up {
         grid-column: 2;
     }
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
 }

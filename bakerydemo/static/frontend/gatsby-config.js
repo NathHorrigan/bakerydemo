@@ -28,8 +28,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          'Alegreya',
-          'Lato'
+          'Alegreya\:400,700',
+          'Lato\:300,400,700,900'
         ]
       }
     },

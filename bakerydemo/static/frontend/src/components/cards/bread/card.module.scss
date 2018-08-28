@@ -1,6 +1,7 @@
 @import "../../../styles/main";
 
 .card {
+    $root: &;
     display: flex;
     border: 1px solid #e2e1e1;
     border-radius: 3px;
@@ -9,9 +10,20 @@
     text-decoration: none;
 }
 
+.cardImageContainer {
+    background: $tertiary;
+    width: 180px;
+    height: 180px;
+}
+
 .cardImage {
     width: 180px;
     height: 180px;
+    transition: opacity $quick-transition;
+
+    &:hover {
+        opacity: 0.3;
+    }
 }
 
 .cardContent {

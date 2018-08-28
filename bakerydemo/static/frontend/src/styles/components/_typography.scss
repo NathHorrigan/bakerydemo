@@ -2,20 +2,30 @@ body {
     font-family: $body;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: $brand;
+}
+
 h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
+    font-weight: $light;
+
+    @include for-tablet-landscape-up {
+        line-height: 1.2;
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
 }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-    font-weight: 300;
+h2, h3 {
+    font-weight: $bold;
+    color: $secondary;
 }
 
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 300;
+h4 {
+    font-weight: $bold;
+    color: $secondary;
+}
+
+p {
+    margin: 0 0 1rem;
 }

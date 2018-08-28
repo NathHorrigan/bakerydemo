@@ -3,8 +3,23 @@
 }
 
 body {
+    line-height: 1.4;
     padding-bottom: 40px;
+    font-size: 19px;
+    background-color: white;
+
     @include for-tablet-landscape-up {
+        font-size: 22px;
         padding-bottom: 0px;
     }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: $site-width;
+    margin: 0 auto;
 }

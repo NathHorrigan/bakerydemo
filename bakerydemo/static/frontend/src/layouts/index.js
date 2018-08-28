@@ -9,10 +9,11 @@ import './reset.css';
 const primaryNav = [
     { label: 'Breads', url: '/breads/' },
     { label: 'Locations', url: '/locations/' },
+    { label: 'Blog', url: '/blog/' }
 ]
 
 export default ({ children }) => (
-    <div>        
+    <div>
         <div className={styles.page}>
             <Header links={primaryNav} />
             <StickyNav links={primaryNav} />
