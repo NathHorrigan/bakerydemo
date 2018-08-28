@@ -71,6 +71,7 @@
         urlPath
         introduction
         body
+        datePublished
         image {
           file
         }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import { getMediaUrl } from '@util/urls'
+import { getMediaUrl, parseMonth } from '@util/urls'
 
 import styles from './blog.module.scss'
 
@@ -13,11 +13,12 @@ export default ({data}) => {
                 {blogs.map(({node}) => {
                     return (
                         <Link to={node.slug} key={node.id} className={styles.blog}>
-                            <div>
-                                <img className={styles.blogImage} src={getMediaUrl(node.image.file.thumbnail)}/>
+                            <img className={styles.blogImage} src={getMediaUrl(node.image.file.thumbnail)}/>
+                            <div className={styles.blogText}>
+                                <h2 className={styles.blogTitle}>{node.title}</h2>
+                                <p className={styles.blogIntroduction}>{node.introduction}</p>
                             </div>
-                            <h2>{node.title}</h2>
-                            <h2>{node.introduction}</h2>
+                            <div className={styles.blogMeta}>{parseMonth(node.datePublished)}</div>
                         </Link>
                     )
                 })}
@@ -36,6 +37,7 @@ export const query = graphql`
                     slug
                     urlPath
                     introduction
+                    datePublished
                     image {
                         file {
                             original
