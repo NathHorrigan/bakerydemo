@@ -116,11 +116,7 @@ LOGGING = {
     },
 }
 
-if 'NETLIFY_TRIGGER_URL' in os.environ:
-    NETLIFY_TRIGGER_URL = os.getenv('NETLIFY_TRIGGER_URL', '')
-
-
-if 'NETLIFY_AUTO_DEPLOY' in os.environ:
-    NETLIFY_AUTO_DEPLOY = os.getenv('NETLIFY_AUTO_DEPLOY', True)
+NETLIFY_TRIGGER_URL = os.getenv('NETLIFY_TRIGGER_URL', '')
+NETLIFY_AUTO_DEPLOY = os.getenv('NETLIFY_AUTO_DEPLOY', True)
 
 
