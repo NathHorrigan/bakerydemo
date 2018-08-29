@@ -1,0 +1,30 @@
+@import '../styles/util/vars';
+
+.home {
+    &Hero {
+        text-align: center;
+        padding: 200px 0 80px 0;
+
+        h1 {
+            font-size: 2.2em;
+            text-transform: uppercase;
+
+            &::after {
+                background-color: $white-80;
+                content: '';
+                display: block;
+                height: 5px;
+                margin: 20px auto;
+                width: 250px;
+            }
+        }
+
+        p {
+            color: #ddd;
+            font-size: 1.6em;
+            margin: 40px auto;
+            max-width: 900px;
+
+        }
+    }
+}

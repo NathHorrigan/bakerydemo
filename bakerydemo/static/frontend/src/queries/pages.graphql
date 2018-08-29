@@ -8,10 +8,13 @@
         title
         slug
         urlPath
-
+        image {
+          file
+        }
         promoImage {
           file
         }
+        heroText
         heroCta
         heroCtaLink {
           urlPath

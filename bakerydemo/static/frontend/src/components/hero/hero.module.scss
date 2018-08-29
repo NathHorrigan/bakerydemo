@@ -24,15 +24,21 @@
         padding: 400px 0 60px 0;
         margin: 0 0 40px;
     }
-}
 
-.heroTitle,
-.heroSubtitle {
-    color: white;
-    z-index: 1;
-    position: relative;
-}
+    &Cta,
+    &Title,
+    &Subtitle {
+        color: white;
+        z-index: 1;
+        position: relative;
+    }
 
-.heroSubtitle {
-    color: $white-80;
+    &Cta {
+        color: $white-80;
+        border: 1px solid $mid-grey;
+        border-radius: 4px;
+        padding: 10px;
+        display: inline-block;
+        text-decoration: none;
+    }
 }
