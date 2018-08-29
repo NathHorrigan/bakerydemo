@@ -72,6 +72,8 @@
         introduction
         body
         datePublished
+        tags
+        subtitle
         image {
           file
         }

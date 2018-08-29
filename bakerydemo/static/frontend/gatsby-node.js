@@ -5,7 +5,8 @@ exports.createPages = ({boundActionCreators, graphql}) => {
 
   const templates = [
     {type: 'BreadPage', component: path.resolve(`src/templates/bread/index.js`)},
-    {type: 'LocationPage', component: path.resolve(`src/templates/location/index.js`)}
+    {type: 'LocationPage', component: path.resolve(`src/templates/location/index.js`)},
+    {type: 'BlogPage', component: path.resolve(`src/templates/blog/index.js`)}
   ]
 
   return graphql(`{
