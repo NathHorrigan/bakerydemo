@@ -1,6 +1,7 @@
 import React from 'react'
 
 import StreamField from '@components/streamfield'
+import Hero from '@components/hero'
 import { getMediaUrl, parseDate } from '@util/urls'
 
 import styles from './blog.module.scss'
@@ -9,12 +10,7 @@ export default (props) => {
     const blog = props.data.page;
     return (
         <div>
-            <div className={styles.blogHero} style={{ backgroundImage: `url(${getMediaUrl(blog.image.file.original)})` }}>
-                <div className={[styles.container, styles.blogMeta].join(' ')}>
-                    <h1>{blog.title}</h1>
-                    <p className={styles.blogSubtitle}>{blog.subtitle}</p>
-                </div>
-            </div>
+            <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} tag={''} />
             <div className={styles.container}>
                 <div className={styles.readingColumn}>
                     <p className={styles.blogIntroduction}>{blog.introduction}</p>

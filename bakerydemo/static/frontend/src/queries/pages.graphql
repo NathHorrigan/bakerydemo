@@ -8,14 +8,23 @@
         title
         slug
         urlPath
-
+        body
+        image {
+          file
+        }
+        promoText
+        promoTitle
         promoImage {
           file
         }
+        heroText
         heroCta
         heroCtaLink {
           urlPath
         }
+        featuredSection1Title
+        featuredSection2Title
+        featuredSection3Title
       }
 
       ... on BreadPage {
