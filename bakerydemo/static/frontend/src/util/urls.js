@@ -1,6 +1,6 @@
 export const baseUrl = (process.env.GATSBY_WAGTAIL_URL) ? (process.env.GATSBY_WAGTAIL_URL) : 'http://localhost:8000'
 
-export const getMediaUrl = url => `${baseUrl}${url}`
+export const getMediaUrl = url => (process.env.GATSBY_WAGTAIL_URL) ? url : `${baseUrl}${url}`
 
 export function parseDate(date) {
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
