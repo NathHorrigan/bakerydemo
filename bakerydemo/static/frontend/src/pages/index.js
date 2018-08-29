@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Hero from '@components/hero'
-import { StreamFieldBlock } from '../fragments'
+import StreamField from '@components/streamfield'
 
 import { getMediaUrl } from '@util/urls'
 
@@ -31,6 +31,11 @@ export default ({ data }) => {
                                 <p className={styles.homeCtaBlockCopy} dangerouslySetInnerHTML={{ __html: node.promoText }} />
                             </div>
                         </div>
+                        <div className={styles.homeCopySection}>
+                            <div className={styles.homeCopy}>
+                                <StreamField key={node.id} blocks={node.body} />
+                            </div>
+                        </div>
                     </div>
                 )
             })}
@@ -47,6 +52,9 @@ export const query = graphql`
                     title
                     heroText
                     heroCta
+                    body {
+                        ...StreamFieldBlock
+                    }
                     heroCtaLink {
                         urlPath
                     }

@@ -31,8 +31,10 @@
     &Columns {
         display: grid;
         grid-gap: 20px;
+        margin-bottom: 20px;
 
         @include for-tablet-landscape-up {
+            margin-bottom: 50px;
             grid-gap: 50px;
             grid-template-columns: 39% 1fr;
         }
@@ -67,5 +69,25 @@
     &CtaBlockCopy {
         color: #ccc;
         line-height: 1.6em;
+    }
+
+    &CopySection {
+        background: linear-gradient(45deg, rgba(170,170,170,1) 0%,rgba(238,238,238,1) 44%);
+        margin-bottom: 20px;
+
+        @include for-tablet-landscape-up {
+            margin-bottom: 50px;
+        }
+    }
+
+    &Copy {
+        padding: 60px;
+        margin: 0 auto;
+        max-width: 660px;
+
+        a {
+            color: $accent;
+            text-decoration: none;
+        }
     }
 }

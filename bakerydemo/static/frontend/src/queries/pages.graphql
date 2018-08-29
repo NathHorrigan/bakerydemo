@@ -8,6 +8,7 @@
         title
         slug
         urlPath
+        body
         image {
           file
         }
