@@ -22,6 +22,9 @@
         heroCtaLink {
           urlPath
         }
+        featuredSection1Title
+        featuredSection2Title
+        featuredSection3Title
       }
 
       ... on BreadPage {

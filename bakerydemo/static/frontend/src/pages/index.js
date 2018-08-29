@@ -30,11 +30,18 @@ export default ({ data }) => {
                                 <h3 className={styles.homeCtaBlockTitle}>{node.promoTitle}</h3>
                                 <p className={styles.homeCtaBlockCopy} dangerouslySetInnerHTML={{ __html: node.promoText }} />
                             </div>
+                            <div>
+                                <h2>{node.featuredSection1Title}</h2>
+                            </div>
                         </div>
                         <div className={styles.homeCopySection}>
                             <div className={styles.homeCopy}>
                                 <StreamField key={node.id} blocks={node.body} />
                             </div>
+                        </div>
+                        <div className={styles.container}>
+                            <h2>{node.featuredSection2Title}</h2>
+                            <h2>{node.featuredSection3Title}</h2>
                         </div>
                     </div>
                 )
@@ -70,6 +77,9 @@ export const query = graphql`
                             thumbnail
                         }
                     }
+                    featuredSection1Title
+                    featuredSection2Title
+                    featuredSection3Title
                 }
             }
         }
