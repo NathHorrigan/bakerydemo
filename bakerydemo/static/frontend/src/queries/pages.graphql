@@ -11,6 +11,8 @@
         image {
           file
         }
+        promoText
+        promoTitle
         promoImage {
           file
         }

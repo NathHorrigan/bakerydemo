@@ -24,6 +24,13 @@ export default ({ data }) => {
                             ctaText={node.heroCta}
                             ctaLink={node.heroCtaLink.urlPath}
                         />
+                        <div className={[styles.container, styles.homeColumns].join(' ')}>
+                            <div className={styles.homeCtaBlock}>
+                                <img className={styles.homeCtaBlockImage} src={getMediaUrl(node.promoImage.file.thumbnail)} alt="" />
+                                <h3 className={styles.homeCtaBlockTitle}>{node.promoTitle}</h3>
+                                <p className={styles.homeCtaBlockCopy} dangerouslySetInnerHTML={{ __html: node.promoText }} />
+                            </div>
+                        </div>
                     </div>
                 )
             })}
@@ -46,6 +53,13 @@ export const query = graphql`
                     image {
                         file {
                             original
+                        }
+                    }
+                    promoText
+                    promoTitle
+                    promoImage {
+                        file {
+                            thumbnail
                         }
                     }
                 }

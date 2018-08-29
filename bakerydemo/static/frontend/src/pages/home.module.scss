@@ -1,4 +1,4 @@
-@import '../styles/util/vars';
+@import '../styles/main';
 
 .home {
     &Hero {
@@ -26,5 +26,46 @@
             max-width: 900px;
 
         }
+    }
+
+    &Columns {
+        display: grid;
+        grid-gap: 20px;
+
+        @include for-tablet-landscape-up {
+            grid-gap: 50px;
+            grid-template-columns: 39% 1fr;
+        }
+    }
+
+    &CtaBlock {
+        border-radius: 0px 0px 10px 10px;
+        background: black;
+        color: white;
+        padding: 40px 60px;
+        text-align: center;
+        margin-top: -40px;
+    }
+
+    &CtaBlockImage {
+        border-radius: 100%;
+        margin: 0 auto 30px;
+        width: 200px;
+
+        @include for-tablet-landscape-up {
+            margin: 0 auto 40px;
+        }
+    }
+
+    &CtaBlockTitle {
+        color: $tertiary;
+        font-weight: $light;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    &CtaBlockCopy {
+        color: #ccc;
+        line-height: 1.6em;
     }
 }
