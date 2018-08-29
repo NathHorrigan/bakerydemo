@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-import { getMediaUrl, parseMonth } from '@util/urls'
+import { getMediaUrl, parseDate } from '@util/urls'
 
 import styles from './blog.module.scss'
 
@@ -18,7 +18,7 @@ export default ({data}) => {
                                 <h2 className={styles.blogTitle}>{node.title}</h2>
                                 <p className={styles.blogIntroduction}>{node.introduction}</p>
                             </div>
-                            <div className={styles.blogMeta}>{parseMonth(node.datePublished)}</div>
+                            <div className={styles.blogMeta}>{parseDate(node.datePublished)}</div>
                         </Link>
                     )
                 })}
