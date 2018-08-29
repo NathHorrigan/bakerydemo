@@ -15,16 +15,16 @@ class Header extends React.Component {
 
                     <section className={styles.headerTop}>
                         <Link className={styles.titleLink} to='/'>The Wagtail Bakery</Link>
-                        <form className={styles.search} onSubmit={event => this.submitSearch(event)}>
-                            <input
-                                onChange={event => this.updateQuery(event.target.value)}
-                                className={styles.searchBar}
-                                placeholder="Search the site..." />
-                            <FontAwesomeIcon
-                                className={styles.searchIcon}
-                                icon={faSearch}
-                                onClick={() => this.submitSearch()} />
-                        </form>
+                        {/*<form className={styles.search} onSubmit={event => this.submitSearch(event)}>*/}
+                            {/*<input*/}
+                                {/*onChange={event => this.updateQuery(event.target.value)}*/}
+                                {/*className={styles.searchBar}*/}
+                                {/*placeholder="Search the site..." />*/}
+                            {/*<FontAwesomeIcon*/}
+                                {/*className={styles.searchIcon}*/}
+                                {/*icon={faSearch}*/}
+                                {/*onClick={() => this.submitSearch()} />*/}
+                        {/*</form>*/}
                     </section>
 
                     <nav className={styles.nav}>
