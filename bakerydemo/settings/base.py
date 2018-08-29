@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -185,3 +186,6 @@ GRAPHENE = {
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "bakerydemo"
+
+NETLIFY_TRIGGER_URL = os.getenv('NETLIFY_TRIGGER_URL', '')
+NETLIFY_AUTO_DEPLOY = os.getenv('NETLIFY_AUTO_DEPLOY', True)
