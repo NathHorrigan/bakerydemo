@@ -1,0 +1,15 @@
+.quote {
+    border-left: 5px solid #d4566b;
+    margin: 0 0 50px;
+    padding: 10px 20px;
+
+    &Text {
+        font-size: 30px;
+        margin: 0 0 10px;
+    }
+
+    &Cite {
+        margin-bottom: 0;
+        font-style: italic;
+    }
+}
