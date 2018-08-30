@@ -71,6 +71,9 @@
         urlPath
         introduction
         body
+        image {
+          file
+        }
       }
 
       ... on BlogPage {
