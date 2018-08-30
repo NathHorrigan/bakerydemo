@@ -9,7 +9,8 @@ import './reset.css';
 const primaryNav = [
     { label: 'Breads', url: '/breads/' },
     { label: 'Locations', url: '/locations/' },
-    { label: 'Blog', url: '/blog/' }
+    { label: 'Blog', url: '/blog/' },
+    { label: 'About', url: '/about/' }
 ]
 
 export default ({ children }) => (
@@ -18,7 +19,7 @@ export default ({ children }) => (
             <Header links={primaryNav} />
             <StickyNav links={primaryNav} />
             <div>
-                { children() }
+                {children()}
             </div>
         </div>
     </div>
