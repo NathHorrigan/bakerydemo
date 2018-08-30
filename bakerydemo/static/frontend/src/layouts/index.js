@@ -10,6 +10,7 @@ const primaryNav = [
     { label: 'Breads', url: '/breads/' },
     { label: 'Locations', url: '/locations/' },
     { label: 'Blog', url: '/blog/' },
+    { label: 'Contact us', url: '/contact-us/' },
     { label: 'About', url: '/about/' }
 ]
 

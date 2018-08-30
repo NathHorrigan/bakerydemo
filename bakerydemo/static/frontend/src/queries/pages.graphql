@@ -98,6 +98,12 @@
         urlPath
       }
 
+      ... on FormPage {
+        id
+        title
+        body
+      }
+
     }
   }
 }
