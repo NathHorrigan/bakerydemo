@@ -9,7 +9,6 @@ import styles from './home.module.scss'
 
 export default ({ data }) => {
     const homeData = data.allPage.edges;
-    console.log(homeData);
 
     return (
         <div>

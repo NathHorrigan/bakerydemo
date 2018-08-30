@@ -7,8 +7,7 @@ import StreamField from '@components/streamfield'
 
 import { getMediaUrl } from '@util/urls'
 
-export default ({data}) => {
-  console.log(data)
+export default ({ data }) => {
   const location = data.page
   return (
     <div className={styles.page}>
@@ -16,7 +15,7 @@ export default ({data}) => {
       <Hero
         image={getMediaUrl(location.image.file.original)}
         title={location.title}
-        tag={''}/>
+        tag={''} />
 
       <div className={styles.pageContent}>
         <div className={styles.container}>
@@ -54,7 +53,7 @@ const renderWeek = hoursOfOperation => hoursOfOperation.map(day => {
   return (
     <span>
       <time className={styles.time}><span>{day.day}:</span> {opening} - {closing}</time>
-      <br/>
+      <br />
     </span>
   )
 })
