@@ -6,7 +6,7 @@ body {
     line-height: 1.4;
     padding-bottom: 40px;
     font-size: 19px;
-    background-color: white;
+    background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(233,228,221,1) 100%);
 
     @include for-tablet-landscape-up {
         font-size: 22px;
