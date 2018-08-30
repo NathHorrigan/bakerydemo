@@ -34,6 +34,8 @@ export const query = graphql`
                 value {
                     caption
                     image
+                    text
+                    attribute_name
                 }
             }
             subtitle
