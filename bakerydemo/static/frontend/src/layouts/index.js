@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '@components/header';
 import StickyNav from '@components/sticky-nav';
+import Footer from '@components/footer';
 
 import styles from './index.module.scss'
 import './reset.css';
@@ -22,6 +23,7 @@ export default ({ children }) => (
             <div>
                 {children()}
             </div>
+            <Footer />
         </div>
     </div>
 );
