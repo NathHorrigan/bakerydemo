@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import styles from './location.module.scss'
 import Hero from '@components/hero'
 import StreamField from '@components/streamfield'
+import Map from '@components/map';
 
 import { getMediaUrl } from '@util/urls'
 
@@ -12,10 +13,7 @@ export default ({ data }) => {
   return (
     <div className={styles.page}>
 
-      <Hero
-        image={getMediaUrl(location.image.file.original)}
-        title={location.title}
-        tag={''} />
+      <Hero image={getMediaUrl(location.image.file.original)} title={location.title} />
 
       <div className={styles.pageContent}>
         <div className={styles.container}>
@@ -38,9 +36,7 @@ export default ({ data }) => {
         <section className={styles.locationAddress}>
           <h3>{location.address}</h3>
         </section>
-        <section className={styles.locationMap}>
-          <h1>MAP GOES HERE</h1>
-        </section>
+          <Map latLong={location.latLong} />
       </div>
 
     </div>

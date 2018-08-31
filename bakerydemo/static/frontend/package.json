@@ -37,6 +37,6 @@
     "gatsby-plugin-offline": "^1.0.18",
     "gatsby-plugin-react-next": "^1.0.11",
     "gatsby-plugin-sass": "^1.0.26",
-    "react-google-maps": "^9.4.5"
+    "react-map-gl": "^3.3.4"
   }
 }

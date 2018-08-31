@@ -64,25 +64,6 @@
       color: white;
     }
   }
-
-  &Map {
-    grid-column: span 2;
-    @include for-tablet-landscape-up {
-      grid-column: 2;
-    }
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 400px;
-    width: 100%;
-
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    text-align: center;
-  }
-
 }
 
 .time {
