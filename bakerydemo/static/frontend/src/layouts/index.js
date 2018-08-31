@@ -11,6 +11,7 @@ const primaryNav = [
     { label: 'Breads', url: '/breads/' },
     { label: 'Locations', url: '/locations/' },
     { label: 'Blog', url: '/blog/' },
+    { label: 'Gallery', url: '/gallery/' },
     { label: 'Contact us', url: '/contact-us/' },
     { label: 'About', url: '/about/' }
 ]

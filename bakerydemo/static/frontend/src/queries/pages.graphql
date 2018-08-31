@@ -104,6 +104,16 @@
         body
       }
 
+      ... on GalleryPage {
+        id
+        title
+        body
+        introduction
+        image {
+          file
+        }
+      }
+
     }
   }
 }
