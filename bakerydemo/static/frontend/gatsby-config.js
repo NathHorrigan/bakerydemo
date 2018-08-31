@@ -4,6 +4,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-next`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sass`,
 
     {
       resolve: 'gatsby-plugin-graphql',
@@ -21,10 +23,6 @@ module.exports = {
     },
 
     {
-      resolve: `gatsby-plugin-sass`,
-    },
-
-    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
@@ -33,6 +31,7 @@ module.exports = {
         ]
       }
     },
+
   ]
 }
 
