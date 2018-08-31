@@ -38,6 +38,7 @@ export const query = graphql`
                     urlPath
                     introduction
                     datePublished
+                    tags
                     image {
                         file {
                             original

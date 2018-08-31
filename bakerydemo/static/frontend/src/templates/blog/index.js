@@ -10,13 +10,15 @@ export default (props) => {
     const blog = props.data.page;
     return (
         <div>
-            <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} tag={''} />
+            <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} />
             <div className={styles.container}>
                 <div className={styles.readingColumn}>
                     <p className={styles.blogIntroduction}>{blog.introduction}</p>
                     <p>{parseDate(blog.datePublished)}</p>
                     <StreamField blocks={blog.body} />
                 </div>
+                <p className={styles.blogTagTitle}>Tagged with:</p>
+                {blog.tags.map((tag) => <div className={styles.blogTag} key={tag}>{tag}</div>)}
             </div>
         </div>
     )
