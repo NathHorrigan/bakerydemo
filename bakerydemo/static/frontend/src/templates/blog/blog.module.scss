@@ -18,4 +18,22 @@
         margin: 0 0 40px;
         font-size: 22px;
     }
+
+    &Tag {
+        font-size: 10px;
+        display: inline-block;
+        color: white;
+        background-color: #d4566b;
+        text-transform: uppercase;
+        margin: 0 5px 5px 0;
+        letter-spacing: 0.15em;
+        font-weight: light;
+        font-family: 'Lato', sans-serif;
+        padding: 6px 8px;
+        border-radius: 4px;
+    }
+
+    &TagTitle {
+        margin-bottom: 0;
+    }
 }
