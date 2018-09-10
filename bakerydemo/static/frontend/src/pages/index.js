@@ -57,7 +57,7 @@ export default ({ data }) => {
                         </div>
                         <div className={styles.container}>
                             <h2 className={[styles.homeSectionTitle, styles.homeSectionTitleCentered].join(' ')}>{node.featuredSection2Title}</h2>
-                            <div className={styles.homeLocations}>
+                            <div className={styles.homeFeatures}>
                                 <Link to="/locations/new-york/" className={styles.homeLocationCard}>
                                     <figure className={styles.homeLocationCardImageContainer}>
                                         <img className={styles.homeLocationCardImage} src={getMediaUrl('/media/images/hof-cornell-university-filter.df5c97ba.fill-430x210-c100.jpg')} />
@@ -88,6 +88,52 @@ export default ({ data }) => {
                             </div>
 
                             <h2 className={[styles.homeSectionTitle, styles.homeSectionTitleCentered].join(' ')}>{node.featuredSection3Title}</h2>
+                            <div className={styles.homeFeatures}>
+                                <Link to="/blog/wild-yeast/" className={styles.homeBlogCard}>
+                                    <figure className={styles.homeBlogCardImageContainer}>
+                                        <img className={styles.homeBlogCardImage} src={getMediaUrl('/media/images/yeast.2e16d0ba.fill-430x254-c100.jpg')} />
+                                    </figure>
+                                    <h3 className={styles.homeBlogCardTitle}>Tracking Wild Yeast</h3>
+                                </Link>
+
+                                <Link to="/blog/bread-circuses/" className={styles.homeBlogCard}>
+                                    <figure className={styles.homeBlogCardImageContainer}>
+                                        <img className={styles.homeBlogCardImage} src={getMediaUrl('/media/images/Bedouins_making_bread.2e16d0ba.fill-430x254-c100.jpg')} />
+                                    </figure>
+                                    <h3 className={styles.homeBlogCardTitle}>Bread and Circuses</h3>
+                                </Link>
+
+                                <Link to="/blog/icelandic-baking/" className={styles.homeBlogCard}>
+                                    <figure className={styles.homeBlogCardImageContainer}>
+                                        <img className={styles.homeBlogCardImage} src={getMediaUrl('/media/images/Olandshvedebrod_6082070226.2e16d0ba.fill-430x254-c100.jpg')} />
+                                    </figure>
+                                    <h3 className={styles.homeBlogCardTitle}>The Great Icelandic Baking Show</h3>
+                                </Link>
+
+                                <Link to="/blog/joy-baking-soda/" className={styles.homeBlogCard}>
+                                    <figure className={styles.homeBlogCardImageContainer}>
+                                        <img className={styles.homeBlogCardImage} src={getMediaUrl('/media/images/bakingsoda.2e16d0ba.fill-430x254-c100.jpg')} />
+                                    </figure>
+                                    <h3 className={styles.homeBlogCardTitle}>The Joy of (Baking) Soda</h3>
+                                </Link>
+
+                                <Link to="/blog/sliced-bread/" className={styles.homeBlogCard}>
+                                    <figure className={styles.homeBlogCardImageContainer}>
+                                        <img className={styles.homeBlogCardImage} src={getMediaUrl('/media/images/sliced.2e16d0ba.fill-430x254-c100.jpg')} />
+                                    </figure>
+                                    <h3 className={styles.homeBlogCardTitle}>The Greatest Thing Since Sliced Bread</h3>
+                                </Link>
+
+
+                                <Link to="/blog/desserts-benefits/" className={styles.homeBlogCard}>
+                                    <figure className={styles.homeBlogCardImageContainer}>
+                                        <img className={styles.homeBlogCardImage} src={getMediaUrl('/media/images/bostoncream.2e16d0ba.fill-430x254-c100.jpg')} />
+                                    </figure>
+                                    <h3 className={styles.homeBlogCardTitle}>Desserts with Benefits</h3>
+                                </Link>
+
+
+                            </div>
                         </div>
                     </div>
                 )

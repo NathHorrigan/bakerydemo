@@ -126,7 +126,7 @@
         }
     }
 
-    &Locations {
+    &Features {
         display: grid;
         grid-gap: 30px;
         margin-bottom: 20px;
@@ -160,7 +160,6 @@
             @include for-tablet-landscape-up {
                 max-height: 210px;
             }
-
         }
 
         &Image {
@@ -184,6 +183,42 @@
 
         &Teaser {
             color: #444;
+        }
+    }
+
+    &BlogCard {
+        text-decoration: none;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            .homeBlogCardImage {
+                opacity: 0.3;
+            }
+        }
+
+        &ImageContainer {
+            background-color: #eb7400;
+            height: 254px;
+        }
+
+        &Image {
+            transition: opacity 0.15s ease-out;
+            height: 254px;
+            object-fit: cover;
+        }
+
+        &Title {
+            position: absolute;
+            color: #fff;
+            font-weight: 300;
+            font-size: 1.8em;
+            text-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
+            z-index: 1;
+            max-width: 400px;
+            text-align: center;
         }
     }
 }
