@@ -90,4 +90,31 @@
             text-decoration: none;
         }
     }
+
+    &SectionTitle {
+        margin-bottom: 20px;
+        font-size:: 30px;
+    }
+
+    &BreadCard {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        display: flex;
+        text-decoration: none;
+
+        &Image {
+            width: 180px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        &Title {
+            margin-top: 40px;
+            font-weight: 300;
+            font-size: 1.4em;
+            color: #d4566b;
+            margin-left: 50px;
+        }
+    }
 }
