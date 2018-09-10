@@ -56,8 +56,38 @@ export default ({ data }) => {
                             </div>
                         </div>
                         <div className={styles.container}>
-                            <h2>{node.featuredSection2Title}</h2>
-                            <h2>{node.featuredSection3Title}</h2>
+                            <h2 className={[styles.homeSectionTitle, styles.homeSectionTitleCentered].join(' ')}>{node.featuredSection2Title}</h2>
+                            <div className={styles.homeLocations}>
+                                <Link to="/locations/new-york/" className={styles.homeLocationCard}>
+                                    <figure className={styles.homeLocationCardImageContainer}>
+                                        <img className={styles.homeLocationCardImage} src={getMediaUrl('/media/images/hof-cornell-university-filter.df5c97ba.fill-430x210-c100.jpg')} />
+                                    </figure>
+                                    <div className={styles.homeLocationCardMeta}>
+                                        <h3 className={styles.homeLocationCardTitle}>Hof</h3>
+                                        <p>Pie gingerbread cake caramels chocolate cake tiramisu wafer. Gummi bears chupa chups chocolate. Topping chupa ...</p>
+                                    </div>
+                                </Link>
+                                <Link to="/locations/reykjavik/" className={styles.homeLocationCard}>
+                                    <figure className={styles.homeLocationCardImageContainer}>
+                                        <img className={styles.homeLocationCardImage} src={getMediaUrl('/media/images/reykjavik-sverrir-thorolfsson.2e16d0ba.fill-430x210-c100.jpg')} />
+                                    </figure>
+                                    <div className={styles.homeLocationCardMeta}>
+                                        <h3 className={styles.homeLocationCardTitle}>Reykjavik</h3>
+                                        <p>Ice cream pie tiramisu carrot cake pie macaroon brownie wafer. Cupcake cookie cotton candy jelly-o ...</p>
+                                    </div>
+                                </Link>
+                                <Link to="/locations/london/" className={styles.homeLocationCard}>
+                                    <figure className={styles.homeLocationCardImageContainer}>
+                                        <img className={styles.homeLocationCardImage} src={getMediaUrl('/media/images/vik.2e16d0ba.fill-430x210-c100.jpg')} />
+                                    </figure>
+                                    <div className={styles.homeLocationCardMeta}>
+                                        <h3 className={styles.homeLocationCardTitle}>Vik</h3>
+                                        <p>Chocolate bar tiramisu toffee. Topping pie powder candy canes jujubes liquorice. Apple pie muffin marshmallow ...</p>
+                                    </div>
+                                </Link>
+                            </div>
+
+                            <h2 className={[styles.homeSectionTitle, styles.homeSectionTitleCentered].join(' ')}>{node.featuredSection3Title}</h2>
                         </div>
                     </div>
                 )
