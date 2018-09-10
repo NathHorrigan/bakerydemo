@@ -40,7 +40,7 @@ export default ({ data }) => {
                                     <img className={styles.homeBreadCardImage} src={getMediaUrl('/media/images/Bean-jam-bunanpankatori-cityjapan.2e16d0ba.fill-500x500.jpg')} />
                                     <h3 className={styles.homeBreadCardTitle}>Anpan</h3>
                                 </Link>
-                                <Link to="/breads/appam/" className={styles.homeBreadCard}>
+                                <Link to="/breads/appam-hoppers/" className={styles.homeBreadCard}>
                                     <img className={styles.homeBreadCardImage} src={getMediaUrl('/media/images/Appam_served_with_Coconut_Milk_in_.2e16d0ba.fill-500x500.jpg')} />
                                     <h3 className={styles.homeBreadCardTitle}>Appam</h3>
                                 </Link>
