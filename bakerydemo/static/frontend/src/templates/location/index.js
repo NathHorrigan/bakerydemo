@@ -1,20 +1,18 @@
 import React from 'react'
+import { graphql } from "gatsby"
 import dayjs from 'dayjs'
-
-import styles from './location.module.scss'
+import Layout from '@components/layout'
 import Hero from '@components/hero'
 import StreamField from '@components/streamfield'
-import Map from '@components/map';
-
+import Map from '@components/map'
+import styles from './location.module.scss'
 import { getMediaUrl } from '@util/urls'
 
 export default ({ data }) => {
   const location = data.page
   return (
-    <div className={styles.page}>
-
+    <Layout expand>
       <Hero image={getMediaUrl(location.image.file.original)} title={location.title} />
-
       <div className={styles.pageContent}>
         <div className={styles.container}>
           <div className={styles.infoContainer}>
@@ -39,7 +37,7 @@ export default ({ data }) => {
           <Map latLong={location.latLong} />
       </div>
 
-    </div>
+    </Layout>
   )
 };
 
@@ -56,7 +54,7 @@ const renderWeek = hoursOfOperation => hoursOfOperation.map(day => {
 
 
 export const query = graphql`
-    query LocationById($id: String!) {
+    query($id: String!) {
         page(id: { eq: $id } ) {
             title
             introduction

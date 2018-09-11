@@ -1,13 +1,13 @@
 import React from 'react'
-
+import { StaticQuery, graphql } from 'gatsby'
+import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
-
 import styles from './contact-us.module.scss'
 
-export default ({ data }) => {
+const layout = data => {
     const contact = data.allPage.edges;
     return (
-        <div>
+        <Layout>
             {contact.map(({ node }) => {
                 return (
                     <div key={node.id} className={styles.container}>
@@ -18,11 +18,12 @@ export default ({ data }) => {
                     </div>
                 )
             })}
-        </div>
+        </Layout>
     )
 }
 
-export const query = graphql`
+export default () => <StaticQuery
+  query={graphql`
     query ContactPageQuery {
         allPage(filter: { type: { eq: "FormPage" } }) {
             edges {
@@ -37,4 +38,5 @@ export const query = graphql`
             }
         }
     }
-`
+  `}
+  render={layout} />

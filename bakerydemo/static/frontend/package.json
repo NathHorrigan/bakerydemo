@@ -8,6 +8,10 @@
     "serve": "gatsby serve"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-export-extensions": "^7.0.0-beta.32",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "babel-eslint": "^9.0.0-beta.3",
     "eslint": "^5.0.1",
     "eslint-config-standard": "^12.0.0-alpha.0",
@@ -20,23 +24,30 @@
     "eslint-plugin-standard": "^3.1.0"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-brands-svg-icons": "^5.3.1",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "breakpoint-sass": "^2.7.1",
     "dayjs": "^1.7.4",
     "font-awesome": "^4.7.0",
-    "gatsby": "^1.9.250",
-    "gatsby-link": "^1.6.40",
+    "gatsby": "next",
+    "gatsby-link": "next",
     "gatsby-node-helpers": "^0.3.0",
-    "gatsby-plugin-google-fonts": "^0.0.4",
-    "gatsby-plugin-graphql": "2.0.3",
-    "gatsby-plugin-offline": "^1.0.18",
-    "gatsby-plugin-react-next": "^1.0.11",
-    "gatsby-plugin-sass": "^1.0.26",
+    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-graphql": "2.0.5",
+    "gatsby-plugin-sass": "next",
+    "node-sass": "^4.9.3",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-map-gl": "^3.3.4"
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { graphql } from "gatsby"
+import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import { getMediaUrl } from '@util/urls'
 
@@ -8,7 +9,7 @@ import styles from './bread.module.scss'
 export default (props) => {
     const bread = props.data.page
     return (
-        <div className={styles.container}>
+        <Layout>
             <article className={styles.page}>
                 <div className={styles.pageContent}>
 
@@ -21,7 +22,7 @@ export default (props) => {
                             </div>
                         </div>
 
-                        <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)} />
+                        <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)} alt=""/>
 
                         <section className={styles.breadMeta}>
                             <span className={styles.breadMetaRow}>
@@ -37,12 +38,12 @@ export default (props) => {
                     </section>
                 </div>
             </article>
-        </div>
+        </Layout>
     )
 }
 
 export const query = graphql`
-    query BreadById($id: String!) {
+    query($id: String!) {
         page(id: { eq: $id }) {
             id
             title

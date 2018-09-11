@@ -1,8 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
-
+import { faBars } from '@fortawesome/free-solid-svg-icons' // Missing: faSearch
 import styles from './header.module.scss'
 
 class Header extends React.Component {

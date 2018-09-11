@@ -1,19 +1,18 @@
 import React from 'react'
-import Link from 'gatsby-link'
-
+import { Link, StaticQuery, graphql } from 'gatsby'
+import Layout from '@components/layout'
 import { getMediaUrl, parseDate } from '@util/urls'
-
 import styles from './blog.module.scss'
 
-export default ({ data }) => {
+const layout = data => {
     const blogs = data.allPage.edges;
     return (
-        <div className={styles.container}>
+        <Layout expand>
             <div className={styles.blogContainer}>
                 {blogs.map(({ node }) => {
                     return (
-                        <Link to={node.slug} key={node.id} className={styles.blog}>
-                            <img className={styles.blogImage} src={getMediaUrl(node.image.file.thumbnail)} />
+                        <Link to={`/blog/${node.slug}`} key={node.id} className={styles.blog}>
+                            <img className={styles.blogImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
                             <div className={styles.blogText}>
                                 <h2 className={styles.blogTitle}>{node.title}</h2>
                                 <p className={styles.blogIntroduction}>{node.introduction}</p>
@@ -23,30 +22,32 @@ export default ({ data }) => {
                     )
                 })}
             </div>
-        </div>
+        </Layout>
     )
 }
 
-export const query = graphql`
-    query BlogQuery {
-        allPage(filter: { type: { eq: "BlogPage" } }) {
-            edges {
-                node {
-                    id
-                    title
-                    slug
-                    urlPath
-                    introduction
-                    datePublished
-                    tags
-                    image {
-                        file {
-                            original
-                            thumbnail
+export default () => <StaticQuery
+    query={graphql`
+        query BlogQuery {
+            allPage(filter: { type: { eq: "BlogPage" } }) {
+                edges {
+                    node {
+                        id
+                        title
+                        slug
+                        urlPath
+                        introduction
+                        datePublished
+                        tags
+                        image {
+                            file {
+                                original
+                                thumbnail
+                            }
                         }
                     }
                 }
             }
         }
-    }
-`
+    `}
+    render={layout} />
