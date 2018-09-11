@@ -1,13 +1,18 @@
 from __future__ import unicode_literals
-
 import graphene
 
-from bakerydemo.breads.schema import Query as BreadQuery
-from bakerydemo.locations.schema import Query as LocationQuery
-from bakerydemo.blog.schema import Query as BlogQuery
+from bakerydemo.graphql.helpers import *
 from bakerydemo.graphql.schemas.pages import PagesRootQuery
+from bakerydemo.blog.schema import Query as BlogQuery
 
-class Query(PagesRootQuery, BlogQuery, LocationQuery, BreadQuery, graphene.ObjectType):
-    pass
 
-schema = graphene.Schema(query=Query)
+def generateGQLSchema(self, queries=[]):
+    class Query(*queries, PagesRootQuery, graphene.ObjectType):
+        pass
+    schema = graphene.Schema(query=Query)
+    return schema
+
+
+schema = generateGQLSchema([
+    BlogQuery
+])
