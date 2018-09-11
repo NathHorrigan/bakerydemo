@@ -1,19 +1,49 @@
 @import '../../styles/main';
 
 .header {
-    padding: 20px 40px 20px 40px;
+    padding: 20px;
     background: $primary;
     background: linear-gradient(135deg, rgba(25,17,18,1) 0%,rgba(55,28,25,1) 100%);
     z-index: 10;
+    position: relative;
 
-    &Top {
-        height: 40px;
+    @include for-tablet-landscape-up {
+        padding: 20px 40px;
+    }
+
+    &Container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        padding: 0;
 
         @include for-tablet-landscape-up {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &Top {
+        @include for-tablet-landscape-up {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             justify-content: space-between;
+        }
+    }
+
+    &MobileNavToggle {
+        padding: 0;
+        background: transparent;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include for-tablet-landscape-up {
+            display: none;
         }
     }
 }
@@ -21,10 +51,14 @@
 .titleLink {
     padding: 0;
     color: white;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 300;
     margin: 0 0 0;
     text-decoration: none;
+
+    @include for-tablet-landscape-up {
+        font-size: 30px;
+    }
 
     &:hover {
         color: $accent;
@@ -61,11 +95,32 @@
 }
 
 .nav {
-    display: none;
-    margin-top: 30px;
+    padding: 0 20px 20px;
+    background: $primary;
+    display: flex;
+    flex-direction: column;
+    transition: opacity, transform, 0.15s ease-in;
+    position: absolute;
+    transform: translateY(-100%);
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0;
 
     @include for-tablet-landscape-up {
-        display: flex;
+        background: transparent;
+        flex-direction: row;
+        position: relative;
+        padding: 0;
+        margin-top: 30px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &Visible {
+        transition: opacity, transform, 0.25s ease-out;
+        transform: translateY(73px);
+        opacity: 1;
     }
 
     &Link {
@@ -81,16 +136,14 @@
         border-top: 1px solid transparent;
         transition: border, color, $quick-transition;
 
+        &Active,
         &:hover {
             color: $accent;
-            background-color: transparent;
-            border-top: 1px solid $accent;
-        }
 
-        &Active {
-            color: $accent;
-            background-color: transparent;
-            border-top: 1px solid $accent;
+            @include for-tablet-landscape-up {
+                background-color: transparent;
+                border-top: 1px solid $accent;
+            }
         }
     }
 }
