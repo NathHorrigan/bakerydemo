@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import { getMediaUrl } from '@util/urls'
 
@@ -8,7 +8,7 @@ import styles from './bread.module.scss'
 export default (props) => {
     const bread = props.data.page
     return (
-        <div className={styles.container}>
+        <Layout>
             <article className={styles.page}>
                 <div className={styles.pageContent}>
 
@@ -37,7 +37,7 @@ export default (props) => {
                     </section>
                 </div>
             </article>
-        </div>
+        </Layout>
     )
 }
 

@@ -1,17 +1,16 @@
 import React from 'react'
 import dayjs from 'dayjs'
-
-import styles from './location.module.scss'
+import Layout from '@components/layout'
 import Hero from '@components/hero'
 import StreamField from '@components/streamfield'
-import Map from '@components/map';
-
+import Map from '@components/map'
+import styles from './location.module.scss'
 import { getMediaUrl } from '@util/urls'
 
 export default ({ data }) => {
   const location = data.page
   return (
-    <div className={styles.page}>
+    <Layout>
 
       <Hero image={getMediaUrl(location.image.file.original)} title={location.title} />
 
@@ -39,7 +38,7 @@ export default ({ data }) => {
           <Map latLong={location.latLong} />
       </div>
 
-    </div>
+    </Layout>
   )
 };
 

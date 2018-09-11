@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import Hero from '@components/hero'
 import { getMediaUrl, parseDate } from '@util/urls'
@@ -9,7 +9,7 @@ import styles from './blog.module.scss'
 export default (props) => {
     const blog = props.data.page;
     return (
-        <div>
+        <Layout>
             <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} />
             <div className={styles.container}>
                 <div className={styles.readingColumn}>
@@ -20,7 +20,7 @@ export default (props) => {
                 <p className={styles.blogTagTitle}>Tagged with:</p>
                 {blog.tags.map((tag) => <div className={styles.blogTag} key={tag}>{tag}</div>)}
             </div>
-        </div>
+        </Layout>
     )
 }
 

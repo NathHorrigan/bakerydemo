@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '@components/layout'
 import styles from './locations.module.scss'
 import Link from 'gatsby-link'
 
@@ -7,7 +8,7 @@ import { getMediaUrl } from '@util/urls'
 export default ({data}) => {
   const locations = data.allPage.edges
   return (
-    <div className={styles.container}>
+    <Layout>
       <article className={styles.page}>
         <div className={styles.pageContent}>
           <header className={styles.pageHeader}>
@@ -31,7 +32,7 @@ export default ({data}) => {
           </section>
         </div>
       </article>
-    </div>
+    </Layout>
   )
 }
 

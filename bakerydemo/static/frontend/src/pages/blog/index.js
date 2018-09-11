@@ -1,14 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
-
+import Layout from '@components/layout'
 import { getMediaUrl, parseDate } from '@util/urls'
-
 import styles from './blog.module.scss'
 
 export default ({ data }) => {
     const blogs = data.allPage.edges;
     return (
-        <div className={styles.container}>
+        <Layout>
             <div className={styles.blogContainer}>
                 {blogs.map(({ node }) => {
                     return (
@@ -23,7 +22,7 @@ export default ({ data }) => {
                     )
                 })}
             </div>
-        </div>
+        </Layout>
     )
 }
 

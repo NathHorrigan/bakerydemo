@@ -1,13 +1,12 @@
 import React from 'react'
-
+import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
-
 import styles from './contact-us.module.scss'
 
 export default ({ data }) => {
     const contact = data.allPage.edges;
     return (
-        <div>
+        <Layout>
             {contact.map(({ node }) => {
                 return (
                     <div key={node.id} className={styles.container}>
@@ -18,7 +17,7 @@ export default ({ data }) => {
                     </div>
                 )
             })}
-        </div>
+        </Layout>
     )
 }
 

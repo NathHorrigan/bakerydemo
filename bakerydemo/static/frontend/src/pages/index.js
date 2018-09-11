@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link'
-
+import Layout from '@components/layout'
 import Hero from '@components/hero'
 import StreamField from '@components/streamfield'
 
@@ -10,9 +10,8 @@ import styles from './home.module.scss'
 
 export default ({ data }) => {
     const homeData = data.allPage.edges;
-
     return (
-        <div>
+        <Layout>
             {homeData.map(({ node }) => {
                 return (
                     <div key={node.id}>
@@ -138,7 +137,7 @@ export default ({ data }) => {
                     </div>
                 )
             })}
-        </div>
+        </Layout>
     )
 }
 

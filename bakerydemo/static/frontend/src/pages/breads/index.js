@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '@components/layout'
 import styles from './breads.module.scss'
 import Card from '@components/cards/bread'
 import Link from 'gatsby-link'
@@ -6,7 +7,7 @@ import Link from 'gatsby-link'
 export default ({data}) => {
   const breads = data.allPage.edges
   return (
-    <div className={styles.container}>
+    <Layout>
         <article className={styles.page}>
             <div className={styles.pageContent}>
                 <header className={styles.pageHeader}>
@@ -27,7 +28,7 @@ export default ({data}) => {
                 </section>
             </div>
         </article>
-    </div>
+    </Layout>
   )
 }
 
