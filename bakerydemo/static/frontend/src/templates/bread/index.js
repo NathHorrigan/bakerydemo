@@ -1,12 +1,13 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import { getMediaUrl } from '@util/urls'
 
 import styles from './bread.module.scss'
 
-export default (props) => {
-    const bread = props.data.page
+const layout = data => {
+    const bread = data.page
     return (
         <Layout>
             <article className={styles.page}>
@@ -41,29 +42,34 @@ export default (props) => {
     )
 }
 
-export const query = graphql`
-    query BreadById($id: String!) {
-        page(id: { eq: $id }) {
-            id
-            title
-            slug
-            urlPath
-            introduction
-            body {
-                ...StreamFieldBlock
-            }
-            origin {
+export default props => {
+    alert(props)
+    return <StaticQuery
+    query={graphql`
+        query BreadById($id: String!) {
+            page(id: { eq: $id }) {
+                id
                 title
-            }
-            breadType {
-                title
-            }
-            image {
-                file {
-                    original
-                    thumbnail
+                slug
+                urlPath
+                introduction
+                body {
+                    ...StreamFieldBlock
+                }
+                origin {
+                    title
+                }
+                breadType {
+                    title
+                }
+                image {
+                    file {
+                        original
+                        thumbnail
+                    }
                 }
             }
         }
-    }
-`
+    `}
+    render={layout} />
+}

@@ -1,12 +1,12 @@
 import React from 'react'
-
+import { StaticQuery, graphql } from 'gatsby'
 import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import { getMediaUrl } from '@util/urls'
 
 import styles from './about.module.scss'
 
-export default ({ data }) => {
+const layout = data => {
     const about = data.allPage.edges;
     return (
         <Layout>
@@ -27,24 +27,26 @@ export default ({ data }) => {
     )
 }
 
-export const query = graphql`
-    query AboutPageQuery {
-        allPage(filter: { type: { eq: "StandardPage" } }) {
-            edges {
-                node {
-                    id
-                    title
-                    body {
-                        ...StreamFieldBlock
-                        type
-                    }
-                    image {
-                        file {
-                            thumbnail
+export default () => <StaticQuery
+    query={graphql`
+        query AboutPageQuery {
+            allPage(filter: { type: { eq: "StandardPage" } }) {
+                edges {
+                    node {
+                        id
+                        title
+                        body {
+                            ...StreamFieldBlock
+                            type
+                        }
+                        image {
+                            file {
+                                thumbnail
+                            }
                         }
                     }
                 }
             }
         }
-    }
-`
+    `}
+    render={layout} />

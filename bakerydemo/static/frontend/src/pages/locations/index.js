@@ -1,11 +1,12 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
+import Link from 'gatsby-link'
 import Layout from '@components/layout'
 import styles from './locations.module.scss'
-import Link from 'gatsby-link'
 
 import { getMediaUrl } from '@util/urls'
 
-export default ({data}) => {
+const layout = data => {
   const locations = data.allPage.edges
   return (
     <Layout>
@@ -17,11 +18,11 @@ export default ({data}) => {
           </header>
 
           <section className={styles.locations}>
-            {locations.map(({node}) => (
+            {locations.map(({ node }) => (
               <div key={node.id}>
-                <Link to={node.slug}>
+                <Link to={node.urlPath}>
                   <div className={styles.locationImageContainer}>
-                    <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)}/>
+                    <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)} />
                     <h3 className={styles.locationHeader}>{node.title}</h3>
                   </div>
                 </Link>
@@ -36,24 +37,26 @@ export default ({data}) => {
   )
 }
 
-export const query = graphql`
-    query LocationQuery {
-        allPage(filter: { type: { eq: "LocationPage" } }) {
-            edges {
-                node {
-                    id
-                    title
-                    slug
-                    address
-                    latLong
-                    image {
-                        file {
-                            original
-                            thumbnail
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
+export default () => <StaticQuery
+  query={graphql`
+      query LocationQuery {
+          allPage(filter: { type: { eq: "LocationPage" } }) {
+              edges {
+                  node {
+                      id
+                      title
+                      urlPath
+                      address
+                      latLong
+                      image {
+                          file {
+                              original
+                              thumbnail
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  `}
+  render={layout} />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import Hero from '@components/hero'
@@ -6,8 +7,8 @@ import { getMediaUrl, parseDate } from '@util/urls'
 
 import styles from './blog.module.scss'
 
-export default (props) => {
-    const blog = props.data.page;
+const layout = data => {
+    const blog = data.page;
     return (
         <Layout>
             <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} />
@@ -24,31 +25,33 @@ export default (props) => {
     )
 }
 
-export const query = graphql`
-    query BlogById($id: String!) {
-        page(id: { eq: $id }) {
-            id
-            title
-            introduction
-            body {
-                ...StreamFieldBlock
-                type
-                value {
-                    caption
-                    image
-                    text
-                    attribute_name
+export default () => <StaticQuery
+    query={graphql`
+        query BlogById($id: String!) {
+            page(id: { eq: $id }) {
+                id
+                title
+                introduction
+                body {
+                    ...StreamFieldBlock
+                    type
+                    value {
+                        caption
+                        image
+                        text
+                        attribute_name
+                    }
                 }
-            }
-            subtitle
-            datePublished
-            tags
-            image {
-                file {
-                    thumbnail
-                    original
+                subtitle
+                datePublished
+                tags
+                image {
+                    file {
+                        thumbnail
+                        original
+                    }
                 }
             }
         }
-    }
-`
+    `}
+    render={layout} />
