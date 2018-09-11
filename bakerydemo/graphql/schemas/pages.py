@@ -2,7 +2,9 @@ import graphene
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
 from wagtail.core.models import get_page_models, Page
-from graphene_django.types import DjangoObjectType
+from bakerydemo.search.views import page_search
+from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 
 class ContentTypeDjangoObjectType(DjangoObjectType):
@@ -37,6 +39,7 @@ class SpecificPage(graphene.Union):
     class Meta:
         types = generate_graphene_objects_for_all_page_types()
 
+
 class PageDjangoObjectType(DjangoObjectType):
     specific = graphene.List(SpecificPage)
     content_type = graphene.Field(ContentTypeDjangoObjectType)
@@ -46,12 +49,13 @@ class PageDjangoObjectType(DjangoObjectType):
 
     class Meta:
         model = Page
-        filter_fields = ['title']
+        filter_fields = ['title',]
+        interfaces = (graphene.relay.Node, )
 
 
 class PagesRootQuery(graphene.ObjectType):
-    page = graphene.Field(PageDjangoObjectType, id=graphene.Int(), slug=graphene.String())
 
+    page = graphene.relay.Node.Field(PageDjangoObjectType)
     def resolve_page(self, info, **kwargs):
         id = kwargs.get('id')
         slug = kwargs.get('slug')
@@ -64,8 +68,7 @@ class PagesRootQuery(graphene.ObjectType):
             qs = Page.objects.get(slug=slug)
             return qs
 
-    pages = graphene.List(PageDjangoObjectType, content_types=graphene.String())
-
+    pages = DjangoFilterConnectionField(PageDjangoObjectType)
     def resolve_pages(self, info, **kwargs):
         qs = Page.objects.live().public()
         content_types = kwargs.get('content_types')
@@ -82,3 +85,9 @@ class PagesRootQuery(graphene.ObjectType):
             )
             qs = qs.filter(content_type_id__in=content_types)
         return qs
+
+    search = DjangoFilterConnectionField(PageDjangoObjectType, query=graphene.String())
+    def resolve_search(self, info, **kwargs):
+        search_query = kwargs.get('query')
+        if search_query is not None:
+            return page_search(search_query)
