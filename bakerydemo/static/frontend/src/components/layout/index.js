@@ -17,14 +17,12 @@ const primaryNav = [
 ]
 
 export default ({ children }) => (
-    <div>
-        <div className={styles.page}>
-            <Header links={primaryNav} />
-            <StickyNav links={primaryNav} />
-            <div>
-                {children()}
-            </div>
-            <Footer />
+    <div className={styles.page}>
+        <Header links={primaryNav} />
+        <StickyNav links={primaryNav} />
+        <div>
+            {children}
         </div>
+        <Footer />
     </div>
 );
