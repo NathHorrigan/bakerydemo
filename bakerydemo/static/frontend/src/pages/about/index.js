@@ -14,11 +14,11 @@ const layout = data => {
                 {about.map(({ node }) => {
                     return (
                         <div key={node.id} className={styles.container}>
-                            <div className={styles.readingColumn}>
-                                <img className={styles.aboutImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
-                                <h1>{node.title}</h1>
-                                <StreamField blocks={node.body} />
-                            </div>
+
+                            <img className={styles.aboutImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
+                            <h1>{node.title}</h1>
+                            <StreamField blocks={node.body} />
+
                         </div>
                     )
                 })}

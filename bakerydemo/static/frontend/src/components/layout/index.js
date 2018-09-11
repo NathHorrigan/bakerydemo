@@ -16,11 +16,11 @@ const primaryNav = [
     { label: 'About', url: '/about/' }
 ]
 
-export default ({ children }) => (
+export default ({ children, expand }) => (
     <div className={styles.page}>
         <Header links={primaryNav} />
         <StickyNav links={primaryNav} />
-        <div>
+        <div className={expand ? styles.fullContainer : styles.container}>
             {children}
         </div>
         <Footer />

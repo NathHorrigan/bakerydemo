@@ -9,7 +9,7 @@ import styles from './blog.module.scss'
 export default (props) => {
     const blog = props.data.page;
     return (
-        <Layout>
+        <Layout expand>
             <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} />
             <div className={styles.container}>
                 <div className={styles.readingColumn}>

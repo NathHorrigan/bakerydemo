@@ -8,7 +8,7 @@ import styles from './blog.module.scss'
 const layout = data => {
     const blogs = data.allPage.edges;
     return (
-        <Layout>
+        <Layout expand>
             <div className={styles.blogContainer}>
                 {blogs.map(({ node }) => {
                     return (
