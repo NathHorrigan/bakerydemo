@@ -1,9 +1,8 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import Layout from '@components/layout'
 import styles from './breads.module.scss'
 import Card from '@components/cards/bread'
-import Link from 'gatsby-link'
 
 const layout = data => {
     const breads = data.allPage.edges

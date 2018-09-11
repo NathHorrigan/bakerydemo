@@ -20,7 +20,7 @@ const layout = data => {
           <section className={styles.locations}>
             {locations.map(({ node }) => (
               <div key={node.id}>
-                <Link to={node.urlPath}>
+                <Link to={`/locations/${node.slug}`}>
                   <div className={styles.locationImageContainer}>
                     <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)} />
                     <h3 className={styles.locationHeader}>{node.title}</h3>
@@ -45,7 +45,7 @@ export default () => <StaticQuery
                   node {
                       id
                       title
-                      urlPath
+                      slug
                       address
                       latLong
                       image {
