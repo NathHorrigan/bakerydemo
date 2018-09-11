@@ -1,17 +1,33 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './header.module.scss'
 
 class Header extends React.Component {
-    state = { query: null }
+    constructor() {
+        super();
+        this.state = {
+            query: null,
+            mobileNavVisible: false,
+        };
+
+        this.toggleMenu = this.toggleMenu.bind(this);
+    }
+
+    toggleMenu(){
+        if (window.innerWidth < 900) {
+            this.setState({
+                mobileNavVisible: !this.state.mobileNavVisible
+            })
+        }
+    }
 
     render() {
         return(
             <header className={styles.header}>
-                <div className={styles.container}>
+                <div className={`${styles.container} ${styles.headerContainer}`}>
 
                     <section className={styles.headerTop}>
                         <Link className={styles.titleLink} to='/'>The Wagtail Bakery</Link>
@@ -27,9 +43,14 @@ class Header extends React.Component {
                         {/*</form>*/}
                     </section>
 
-                    <nav className={styles.nav}>
+                    <button className={styles.headerMobileNavToggle} onClick={this.toggleMenu}>
+                        <FontAwesomeIcon icon={faBars} color="white" size="3x" />
+                    </button>
+
+                    <nav className={this.state.mobileNavVisible ? `${styles.nav} ${styles.navVisible}` : styles.nav}>
                         { (this.props.links || []).map(link => (
                             <Link
+                            onClick={this.toggleMenu}
                             className={styles.navLink}
                             activeClassName={styles.navLinkActive}
                             key={link.url}
