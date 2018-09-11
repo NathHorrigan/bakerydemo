@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from "gatsby"
 import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import Hero from '@components/hero'

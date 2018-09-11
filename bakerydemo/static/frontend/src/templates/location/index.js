@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from "gatsby"
 import dayjs from 'dayjs'
 import Layout from '@components/layout'
 import Hero from '@components/hero'

@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from "gatsby"
 import Layout from '@components/layout'
 import StreamField from '@components/streamfield'
 import { getMediaUrl } from '@util/urls'
@@ -21,7 +22,7 @@ export default (props) => {
                             </div>
                         </div>
 
-                        <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)} />
+                        <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)} alt=""/>
 
                         <section className={styles.breadMeta}>
                             <span className={styles.breadMetaRow}>

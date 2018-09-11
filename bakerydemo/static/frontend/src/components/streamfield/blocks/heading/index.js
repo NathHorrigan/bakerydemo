@@ -15,5 +15,8 @@ export default ({ size, content }) => {
 
     case 'h4':
       return <h4 className={[ styles.heading, styles.h4 ]}>{content}</h4>
+
+    default:
+      return <h3 className={styles.heading}>{content}</h3>
   }
 }

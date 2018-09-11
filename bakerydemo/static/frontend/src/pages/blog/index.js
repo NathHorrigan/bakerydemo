@@ -1,6 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Link from 'gatsby-link'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import Layout from '@components/layout'
 import { getMediaUrl, parseDate } from '@util/urls'
 import styles from './blog.module.scss'
@@ -13,7 +12,7 @@ const layout = data => {
                 {blogs.map(({ node }) => {
                     return (
                         <Link to={`/blog/${node.slug}`} key={node.id} className={styles.blog}>
-                            <img className={styles.blogImage} src={getMediaUrl(node.image.file.thumbnail)} />
+                            <img className={styles.blogImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
                             <div className={styles.blogText}>
                                 <h2 className={styles.blogTitle}>{node.title}</h2>
                                 <p className={styles.blogIntroduction}>{node.introduction}</p>

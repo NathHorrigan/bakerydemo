@@ -1,6 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
-import Link from 'gatsby-link'
+import { Link, StaticQuery, graphql } from "gatsby"
 import Layout from '@components/layout'
 import styles from './locations.module.scss'
 
@@ -22,12 +21,12 @@ const layout = data => {
               <div key={node.id}>
                 <Link to={`/locations/${node.slug}`}>
                   <div className={styles.locationImageContainer}>
-                    <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)} />
+                    <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
                     <h3 className={styles.locationHeader}>{node.title}</h3>
                   </div>
                 </Link>
                 <address className={styles.locationAddress}>{node.address}</address>
-                <a className={styles.locationButton} href={`https://google.com/maps/?q=${node.latLong}`} target="_blank">Map</a>
+                <a className={styles.locationButton} href={`https://google.com/maps/?q=${node.latLong}`} target="_blank" rel="noopener noreferrer">Map</a>
               </div>
             ))}
           </section>
