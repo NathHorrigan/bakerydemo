@@ -11,20 +11,18 @@ const primaryNav = [
     { label: 'Breads', url: '/breads/' },
     { label: 'Locations', url: '/locations/' },
     { label: 'Blog', url: '/blog/' },
-    { label: 'Gallery', url: '/gallery/' },
+    // { label: 'Gallery', url: '/gallery/' },
     { label: 'Contact us', url: '/contact-us/' },
     { label: 'About', url: '/about/' }
 ]
 
-export default ({ children }) => (
-    <div>
-        <div className={styles.page}>
-            <Header links={primaryNav} />
-            <StickyNav links={primaryNav} />
-            <div>
-                {children()}
-            </div>
-            <Footer />
+export default ({ children, expand }) => (
+    <div className={styles.page}>
+        <Header links={primaryNav} />
+        <StickyNav links={primaryNav} />
+        <div className={expand ? styles.fullContainer : styles.container}>
+            {children}
         </div>
+        <Footer />
     </div>
 );

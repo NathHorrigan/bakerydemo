@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { graphql } from 'gatsby'
 import Hero from '@components/hero'
 import { getMediaUrl } from '@util/urls'
 
