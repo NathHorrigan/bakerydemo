@@ -11,10 +11,8 @@ import { getMediaUrl } from '@util/urls'
 export default ({ data }) => {
   const location = data.page
   return (
-    <Layout>
-
+    <Layout expand>
       <Hero image={getMediaUrl(location.image.file.original)} title={location.title} />
-
       <div className={styles.pageContent}>
         <div className={styles.container}>
           <div className={styles.infoContainer}>
