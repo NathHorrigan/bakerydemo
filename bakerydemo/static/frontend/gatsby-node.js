@@ -44,24 +44,3 @@ exports.createPages = ({boundActionCreators, graphql}) => {
         })
     })
 }
-
-exports.modifyBabelrc = ({babelrc}) => {
-  return {
-    ...babelrc,
-    plugins: babelrc.plugins.concat([
-      "transform-export-extensions",
-      ['babel-plugin-module-resolver', {
-        'root': ['./src'],
-        'alias': {
-          '@components': './src/components',
-          '@layouts': './src/layouts',
-          '@pages': './src/pages',
-          '@queries': './src/queries',
-          '@templates': './src/templates',
-          '@styles': './src/styles',
-          '@util': './src/util',
-        }
-      }]
-    ])
-  }
-}
