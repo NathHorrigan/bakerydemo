@@ -46,6 +46,20 @@ def convert_tag_field_to_string(field, registry=None):
 
 # --------- IMAGES ---------
 
+class ObjectField(types.Scalar):
+
+    @staticmethod
+    def serialize(dt):
+        return dt
+
+    @staticmethod
+    def parse_literal(node):
+        return node.value
+
+    @staticmethod
+    def parse_value(value):
+        return value
+
 class WagtailImageRendition(graphene.ObjectType):
     id = graphene.ID()
     url = graphene.String()
@@ -94,3 +108,10 @@ class WagtailImageNode(DjangoObjectType):
             for width in sizes
         ]
         return WagtailImageRenditionList(rendition_list=rendition_list)
+
+    file = ObjectField()
+    def resolve_file(self, *args):
+        return {
+            'original': self.get_rendition('original').url,
+            'thumbnail': self.get_rendition('fill-500x500').url,
+        }
