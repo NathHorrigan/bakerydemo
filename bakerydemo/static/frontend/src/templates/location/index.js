@@ -12,7 +12,11 @@ export default ({ data }) => {
   const location = data.page
   return (
     <Layout expand>
-      <Hero image={getMediaUrl(location.image.file.original)} title={location.title} />
+      <Hero
+        image={getMediaUrl(location.image.file.original)}
+        subtitle={`This location is currently ${renderOpenOrClosed(location.hoursOfOperation)}`}
+        title={location.title}
+      />
       <div className={styles.pageContent}>
         <div className={styles.container}>
           <div className={styles.infoContainer}>
@@ -51,6 +55,13 @@ const renderWeek = hoursOfOperation => hoursOfOperation.map(day => {
     </span>
   )
 })
+
+const renderOpenOrClosed = (hours) => {
+  const today = dayjs().subtract(1, 'day').day();
+  const timeNow = dayjs().format('HH:mm:ss')
+  const locationHours = hours[`${today}`];
+  return timeNow > locationHours.openingTime && timeNow < locationHours.closingTime ? 'open' : 'closed';
+};
 
 
 export const query = graphql`
