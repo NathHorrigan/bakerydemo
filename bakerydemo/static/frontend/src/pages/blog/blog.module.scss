@@ -3,7 +3,7 @@
 .blogContainer {
     display: grid;
     grid-gap: 30px;
-    margin: 2rem 2rem 0 2rem;
+    margin: 2rem 0;
     @include for-tablet-portrait-up {
         grid-template-columns: 1fr 1fr;
     }
