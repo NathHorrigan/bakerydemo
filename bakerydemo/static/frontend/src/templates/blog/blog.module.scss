@@ -36,4 +36,18 @@
     &TagTitle {
         margin-bottom: 0;
     }
+
+    &Author {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+            border-radius: 50%;
+        }
+
+        p {
+            margin: 0 0 0 10px;
+        }
+    }
 }
