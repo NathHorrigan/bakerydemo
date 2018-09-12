@@ -5,11 +5,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
 
     {
-      resolve: 'gatsby-plugin-graphql',
+      resolve: 'gatsby-source-wagtail',
       options: {
-        endpoint: (process.env.GATSBY_WAGTAIL_URL) ? `${process.env.GATSBY_WAGTAIL_URL}/graphql` : 'http://localhost:8000/graphql',
+        endpoint: (process.env.GATSBY_WAGTAIL_URL) ? process.env.GATSBY_WAGTAIL_URL : 'http://localhost:8000',
         queries: [
           {
             type: 'page',
@@ -35,8 +37,7 @@ module.exports = {
 }
 
 const tranformWagtailPage = node => {
-  let page = (node.specific) ? node.specific[0] : {}
-  // console.log()
+  let page = node.specific ? node.specific[0] : {}
   return ({
     ...page,
     type: page.__typename,
@@ -49,5 +50,4 @@ const tranformWagtailPage = node => {
           : value
       }))
   })
-
 }

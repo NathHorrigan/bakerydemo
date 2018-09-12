@@ -9,12 +9,12 @@ import styles from './home.module.scss'
 export default ({ data }) => {
     const homeData = data.allPage.edges;
     return (
-        <Layout>
+        <Layout expand>
             {homeData.map(({ node }) => {
                 return (
                     <div key={node.id}>
                         <Hero
-                            image={getMediaUrl(node.image.file.original)}
+                            image={node.image.localFile.childImageSharp.resolutions}
                             title={node.title}
                             subtitle={node.heroText}
                             modifier={styles.homeHero}
@@ -157,6 +157,13 @@ export const query = graphql`
                     image {
                         file {
                             original
+                        }
+                        localFile {
+                            childImageSharp {
+                                resolutions(width: 1600, height: 600) {
+                                    ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+                                }
+                            }
                         }
                     }
                     promoText
