@@ -49,7 +49,7 @@ const renderWeek = hoursOfOperation => hoursOfOperation.map(day => {
   const opening = (day.openingTime) ? dayjs(`1/1/2018 ${day.openingTime}`).format('hh:mmA') : 'CLOSED'
   const closing = (day.closingTime) ? dayjs(`1/1/2018 ${day.closingTime}`).format('hh:mmA') : 'CLOSED'
   return (
-    <span>
+    <span key={day.day}>
       <time className={styles.time}><span>{day.day}:</span> {opening} - {closing}</time>
       <br />
     </span>
