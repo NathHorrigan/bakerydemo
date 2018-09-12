@@ -21,15 +21,15 @@ module.exports = {
       },
     },
 
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       'Alegreya\:400,700',
-    //       'Lato\:300,400,700,900'
-    //     ]
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Alegreya\:400,700',
+          'Lato\:300,400,700,900'
+        ]
+      }
+    },
 
   ]
 }

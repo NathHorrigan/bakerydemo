@@ -9,7 +9,7 @@ import styles from './home.module.scss'
 export default ({ data }) => {
     const homeData = data.allPage.edges;
     return (
-        <Layout>
+        <Layout expand>
             {homeData.map(({ node }) => {
                 return (
                     <div key={node.id}>

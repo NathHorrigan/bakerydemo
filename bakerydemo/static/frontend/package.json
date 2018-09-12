@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-export-extensions": "^7.0.0-beta.32",
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
@@ -42,8 +43,9 @@
     "gatsby": "next",
     "gatsby-link": "next",
     "gatsby-node-helpers": "^0.3.0",
-    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-graphql": "2.0.5",
+    "gatsby-plugin-offline": "next",
     "gatsby-plugin-sass": "next",
     "node-sass": "^4.9.3",
     "react": "^16.5.0",
