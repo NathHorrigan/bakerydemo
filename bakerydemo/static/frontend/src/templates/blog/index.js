@@ -16,6 +16,10 @@ export default (props) => {
                 <div className={styles.readingColumn}>
                     <p className={styles.blogIntroduction}>{blog.introduction}</p>
                     <p>{parseDate(blog.datePublished)}</p>
+                    <div className={styles.blogAuthor}>
+                        <img src="https://placehold.it/50" />
+                        <p>Lightning Hopkins</p>
+                    </div>
                     <StreamField blocks={blog.body} />
                 </div>
                 <p className={styles.blogTagTitle}>Tagged with:</p>
