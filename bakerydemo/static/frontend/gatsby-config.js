@@ -17,7 +17,8 @@ module.exports = {
             type: 'Page',
             extractKey: 'pages',
             path: './src/queries/pages.graphql',
-            transform: node => tranformWagtailPage(node)
+            transform: node => tranformWagtailPage(node),
+            imageUrlPrefix: process.env.IMAGE_PREFIX ? process.env.IMAGE_PREFIX : `http://localhost:8000`
           }
         ]
       },
