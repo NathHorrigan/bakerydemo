@@ -1,0 +1,83 @@
+@import '../../styles/main';
+
+.blogs {
+    position: relative;
+    text-decoration: none;
+    @include for-tablet-landscape-up {
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+            grid-column: 1/3;
+        }
+
+        &:last-child {
+            grid-column: 3/5;
+        }
+    }
+
+    &Image {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &Text {
+        background: linear-gradient(180deg,hsla(0,0%,100%,0) 0%,#000 30%);
+        background-color: transparent;
+        bottom: 0;
+        padding: 40px 20px 20px 20px;
+        margin-top: -150px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &Title {
+        color: white;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    &Introduction {
+        color: $light-grey;
+        font-size: 17px;
+        height: 50px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    &Meta {
+        background-color: $dark-grey;
+        color: white;
+        padding: 20px;
+        font-family: $brand;
+        font-weight: $light;
+        font-size: 16px;
+    }
+
+    &Filters {
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            margin-right: 15px;
+            text-transform: uppercase;
+            color: $accent;
+            border-right: 1px solid lightgray;
+            padding-right: 15px;
+        }
+    }
+
+    &Container {
+        display: grid;
+        grid-gap: 30px;
+        margin: 2rem 0;
+        @include for-tablet-portrait-up {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include for-tablet-landscape-up {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
