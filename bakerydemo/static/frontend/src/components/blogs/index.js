@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby'
 import { getMediaUrl, parseDate } from '@util/urls'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './blogs.module.scss'
 
@@ -12,16 +14,26 @@ class Blogs extends React.Component {
             activeBlogs: props.blogs,
             filtered: false
         }
+
+        this.handleClearClick = this.handleClearClick.bind(this);
     }
 
-    handleFilterClick(e) {
-        e.preventDefault();
+    removeActiveStyles(e){
         [...e.target.parentNode.childNodes].forEach(el => {
             el.style.color = '';
             el.style.backgroundColor = '';
         })
+    }
+
+    addActiveStyle(e) {
         e.target.style.color = '#eb7400';
         e.target.style.backgroundColor = 'rgba(0,0,0,0.1)';
+    }
+
+    handleFilterClick(e) {
+        e.preventDefault();
+        this.removeActiveStyles(e);
+        this.addActiveStyle(e);
 
         const activeBlogs = this.props.blogs.filter(blog => {
             if (blog.node.tags.includes(e.target.innerHTML)) {
@@ -32,6 +44,15 @@ class Blogs extends React.Component {
         this.setState({
             activeBlogs,
             filtered: true
+        });
+    }
+
+    handleClearClick(e){
+        e.preventDefault();
+        this.removeActiveStyles(e);
+        this.setState({
+            activeBlogs: this.props.blogs,
+            filtered: false
         });
     }
 
@@ -47,9 +68,17 @@ class Blogs extends React.Component {
                 <div className={styles.blogsFilters}>
                     {this.renderTags(this.props.blogs).map(item => {
                         return (
-                            <a href="#" onClick={event => this.handleFilterClick(event)} key={item}>{item}</a>
+                            <a href="#" className={styles.blogsFilter} onClick={event => this.handleFilterClick(event)} key={item}>{item}</a>
                         )
                     })}
+                    {this.state.filtered ? (
+                        <a href="#" className={styles.blogsFilterClear} onClick={event => this.handleClearClick(event)}>
+                            Clear
+                            <FontAwesomeIcon icon={faTimes} />
+                        </a>
+                    ) : (
+                        null
+                    )}
                 </div>
                 <div className={styles.blogsContainer}>
                     {this.state.activeBlogs.map(({ node }) => {

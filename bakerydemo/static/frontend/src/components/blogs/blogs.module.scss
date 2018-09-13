@@ -68,14 +68,43 @@
     &Filters {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
+    }
 
-        > * {
-            text-transform: uppercase;
-            color: $accent;
-            border-right: 1px solid lightgray;
+    &Filter {
+        text-transform: uppercase;
+        color: $accent;
+        border-right: 1px solid lightgray;
+        padding: 0 15px;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: color, background-color, 0.2s ease;
+
+        &:last-child {
+            border-right: 0;
+        }
+
+        &:hover {
+            color: #eb7400;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        &Clear {
+            color: #b7b7b7;
             padding: 0 15px;
+            text-transform: uppercase;
             text-decoration: none;
-            font-size: 0.9em;
+            transition: color 0.2s ease;
+            font-size: 14px;
+            font-family: $brand;
+
+            &:hover {
+                color: #222;
+            }
+
+            svg {
+                margin-left: 5px;
+            }
         }
     }
 
