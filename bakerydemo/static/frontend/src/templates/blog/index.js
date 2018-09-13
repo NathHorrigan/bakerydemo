@@ -11,7 +11,7 @@ export default (props) => {
     const blog = props.data.page;
     return (
         <Layout expand>
-            <Hero image={getMediaUrl(blog.image.file.original)} title={blog.title} subtitle={blog.subtitle} />
+            <Hero image={blog.image.localFile.childImageSharp.resolutions} title={blog.title} subtitle={blog.subtitle} />
             <div className={styles.container}>
                 <div className={styles.readingColumn}>
                     <p className={styles.blogIntroduction}>{blog.introduction}</p>
@@ -45,9 +45,12 @@ export const query = graphql`
             datePublished
             tags
             image {
-                file {
-                    thumbnail
-                    original
+                localFile {
+                    childImageSharp {
+                        resolutions(width: 1600, height: 600) {
+                            ...GatsbyImageSharpResolutions_withWebp
+                        }
+                    }
                 }
             }
         }

@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faWindowClose } from '@fortawesome/free-solid-svg-icons'
 import debounce from 'debounce-promise'
 import { baseUrl } from '../../util/urls'
-import { search } from '../../../plugins/gatsby-source-wagtail'
+import { search } from 'gatsby-source-wagtail'
 import styles from './search.module.scss'
-import { Link } from 'gatsby'
 import { push } from "gatsby-link"
 
 export default class SearchBar extends Component {

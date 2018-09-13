@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Link, graphql } from "gatsby"
 import Layout from '@components/layout'
 import Hero from '@components/hero'
@@ -155,13 +155,10 @@ export const query = graphql`
                         urlPath
                     }
                     image {
-                        file {
-                            original
-                        }
                         localFile {
                             childImageSharp {
                                 resolutions(width: 1600, height: 600) {
-                                    ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+                                    ...GatsbyImageSharpResolutions_withWebp
                                 }
                             }
                         }
