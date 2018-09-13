@@ -1,0 +1,86 @@
+@import '../../styles/main';
+
+.search {
+  display: none;
+  position: relative;
+  min-width: 280px;
+
+  @include for-tablet-landscape-up {
+    display: block;
+  }
+
+  &Bar {
+    width: 280px;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
+    padding: 10px;
+    font-family: $brand;
+    transition: 0.5s width ease;
+
+    &:focus {
+      width: 380px !important;
+    }
+
+  }
+
+  &Icon {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: $accent;
+    cursor: pointer;
+    height: 18px;
+  }
+
+  &Results {
+
+    &Container {
+      position: absolute;
+      background: white;
+      border-radius: 5px;
+      max-height: 500px;
+      overflow-y: scroll;
+      margin-top: 10px;
+      border: $accent 3px solid;
+      width: 395px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    &Item {
+      cursor: pointer;
+      min-height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      text-decoration: none !important;
+
+      &:hover {
+        background-color: rgba(#d2dae2, 0.3);
+      }
+
+      &Title {
+        font-size: 12pt;
+        font-family: $brand;
+        color: $primary;
+      }
+
+      &Type {
+        font-size: 9pt;
+        font-family: $brand;
+        color: white;
+        background-color: $accent;
+        border-radius: 3px;
+        padding: 3px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+    }
+
+  }
+
+}

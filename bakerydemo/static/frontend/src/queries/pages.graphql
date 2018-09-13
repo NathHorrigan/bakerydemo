@@ -1,5 +1,5 @@
-{
-  pages {
+query($updatedAfter: String) {
+  pages(updatedAfter: $updatedAfter) {
     edges {
       node {
         specific {

@@ -5,6 +5,7 @@ from wagtail.core.models import get_page_models, Page
 from bakerydemo.search.views import page_search
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
+import django_filters
 
 
 class ContentTypeDjangoObjectType(DjangoObjectType):
@@ -42,22 +43,34 @@ class SpecificPage(graphene.Union):
 
 class PageDjangoObjectType(DjangoObjectType):
     specific = graphene.List(SpecificPage)
+    pk = graphene.String()
     content_type = graphene.Field(ContentTypeDjangoObjectType)
+
+    class Meta:
+        model = Page
+        filter_fields = ['id', 'title']
+        interfaces = (graphene.relay.Node, )
 
     def resolve_specific(self, info, **kwargs):
         return [self.specific]
 
+    def resolve_pk(self, info, **kwargs):
+        return self.pk
+
+
+class PageTypeFilter(django_filters.FilterSet):
+    updated_at = django_filters.DateTimeFilter(name="updated_at", lookup_type='gte')
+
     class Meta:
         model = Page
-        filter_fields = ['title',]
-        interfaces = (graphene.relay.Node, )
+        fields = ['id', 'title', 'updated_at']
 
 
 class PagesRootQuery(graphene.ObjectType):
 
-    page = graphene.relay.Node.Field(PageDjangoObjectType)
+    page = graphene.relay.Node.Field(PageDjangoObjectType, pk=graphene.Int())
     def resolve_page(self, info, **kwargs):
-        id = kwargs.get('id')
+        id = kwargs.get('pk')
         slug = kwargs.get('slug')
 
         if id is not None:
@@ -68,9 +81,14 @@ class PagesRootQuery(graphene.ObjectType):
             qs = Page.objects.get(slug=slug)
             return qs
 
-    pages = DjangoFilterConnectionField(PageDjangoObjectType)
+    pages = DjangoFilterConnectionField(PageDjangoObjectType, updatedAfter=graphene.String())
     def resolve_pages(self, info, **kwargs):
+
+        updated_after = kwargs.get('updatedAfter', None)
         qs = Page.objects.live().public()
+        if updated_after:
+            qs = qs.filter(latest_revision_created_at__gte=updated_after)
+
         content_types = kwargs.get('content_types')
         if content_types is not None:
             content_types = [content_type.split('.') for content_type

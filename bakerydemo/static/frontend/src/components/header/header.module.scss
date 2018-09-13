@@ -26,6 +26,7 @@
     &Top {
         @include for-tablet-landscape-up {
             height: 40px;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -62,35 +63,6 @@
 
     &:hover {
         color: $accent;
-    }
-}
-
-.search {
-    display: none;
-    position: relative;
-    width: 220px;
-
-    @include for-tablet-landscape-up {
-        display: block;
-    }
-
-    &Bar {
-        width: 100%;
-        border-radius: 3px;
-        border: none;
-        font-size: 14px;
-        padding: 10px;
-        font-family: $brand;
-    }
-
-    &Icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        color: $accent;
-        cursor: pointer;
     }
 }
 
