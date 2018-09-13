@@ -50,6 +50,7 @@
     "gatsby-plugin-sass": "next",
     "gatsby-plugin-sharp": "^2.0.0-rc.7",
     "gatsby-source-filesystem": "^2.0.1-rc.6",
+    "gatsby-source-wagtail": "git+https://github.com/NathHorrigan/gatsby-source-wagtail.git",
     "gatsby-transformer-sharp": "^2.1.1-rc.3",
     "node-sass": "^4.9.3",
     "react": "^16.5.0",
