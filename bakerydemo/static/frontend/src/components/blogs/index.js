@@ -9,11 +9,20 @@ class Blogs extends React.Component {
         super();
 
         this.state = {
-            activeBlogs: props.blogs
+            activeBlogs: props.blogs,
+            filtered: false
         }
     }
 
     handleFilterClick(e) {
+        e.preventDefault();
+        [...e.target.parentNode.childNodes].forEach(el => {
+            el.style.color = '';
+            el.style.backgroundColor = '';
+        })
+        e.target.style.color = '#eb7400';
+        e.target.style.backgroundColor = 'rgba(0,0,0,0.1)';
+
         const activeBlogs = this.props.blogs.filter(blog => {
             if (blog.node.tags.includes(e.target.innerHTML)) {
                 return blog;
@@ -21,8 +30,9 @@ class Blogs extends React.Component {
         });
 
         this.setState({
-            activeBlogs
-        })
+            activeBlogs,
+            filtered: true
+        });
     }
 
     renderTags(blogs) {
@@ -44,7 +54,7 @@ class Blogs extends React.Component {
                 <div className={styles.blogsContainer}>
                     {this.state.activeBlogs.map(({ node }) => {
                         return (
-                            <Link to={`/blog/${node.slug}`} key={node.id} className={styles.blogs}>
+                            <Link to={`/blog/${node.slug}`} key={node.id} className={this.state.filtered ? `${styles.blogs} ${styles.blogsFiltered}` : styles.blogs}>
                                 <img className={styles.blogsImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
                                 <div className={styles.blogsText}>
                                     <h2 className={styles.blogsTitle}>{node.title}</h2>

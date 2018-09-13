@@ -14,6 +14,16 @@
         &:last-child {
             grid-column: 3/5;
         }
+
+        &Filtered {
+            &:last-child {
+                grid-column: auto;
+            }
+
+            &:only-child {
+                grid-column: 1/3;
+            }
+        }
     }
 
     &Image {
@@ -60,11 +70,12 @@
         flex-wrap: wrap;
 
         > * {
-            margin-right: 15px;
             text-transform: uppercase;
             color: $accent;
             border-right: 1px solid lightgray;
-            padding-right: 15px;
+            padding: 0 15px;
+            text-decoration: none;
+            font-size: 0.9em;
         }
     }
 
