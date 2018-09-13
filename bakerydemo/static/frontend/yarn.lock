@@ -4995,9 +4995,9 @@ gatsby-source-filesystem@^2.0.1-rc.6:
     valid-url "^1.0.9"
     xstate "^3.1.0"
 
-"gatsby-source-wagtail@git+https://github.com/NathHorrigan/gatsby-source-wagtail.git":
-  version "0.0.2"
-  resolved "git+https://github.com/NathHorrigan/gatsby-source-wagtail.git#d01672be461a266667ec61bfab9c91818696dcc2"
+"gatsby-source-wagtail@https://github.com/NathHorrigan/gatsby-source-wagtail":
+  version "0.0.3"
+  resolved "https://github.com/NathHorrigan/gatsby-source-wagtail#9a45b7bcf3771c97103279160731823ac3a60c2e"
   dependencies:
     bluebird "^3.5.2"
     debounce-promise "^3.1.0"
