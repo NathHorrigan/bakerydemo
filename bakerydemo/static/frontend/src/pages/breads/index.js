@@ -48,9 +48,12 @@ export default () => <StaticQuery
                             title
                         }
                         image {
-                            file {
-                                original
-                                thumbnail
+                            localFile {
+                              childImageSharp {
+                                  resolutions(height: 180, width: 180) {
+                                      ...GatsbyImageSharpResolutions_withWebp
+                                  }
+                              }
                             }
                         }
                     }

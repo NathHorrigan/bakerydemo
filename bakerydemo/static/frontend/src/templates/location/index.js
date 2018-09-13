@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import Layout from '@components/layout'
 import Hero from '@components/hero'
@@ -8,17 +8,17 @@ import Map from '@components/map'
 import styles from './location.module.scss'
 import { getMediaUrl } from '@util/urls'
 
-export default ({ data }) => {
+export default ({data}) => {
   const location = data.page
   return (
     <Layout expand>
-      <Hero image={getMediaUrl(location.image.file.original)} title={location.title} />
+      <Hero image={location.image.localFile.childImageSharp.resolutions} title={location.title}/>
       <div className={styles.pageContent}>
         <div className={styles.container}>
           <div className={styles.infoContainer}>
 
             <section className={styles.infoContent}>
-              <StreamField blocks={location.body} />
+              <StreamField blocks={location.body}/>
             </section>
 
             <section className={styles.infoOpeningHours}>
@@ -34,7 +34,7 @@ export default ({ data }) => {
         <section className={styles.locationAddress}>
           <h3>{location.address}</h3>
         </section>
-          <Map latLong={location.latLong} />
+        <Map latLong={location.latLong}/>
       </div>
 
     </Layout>
@@ -47,11 +47,10 @@ const renderWeek = hoursOfOperation => hoursOfOperation.map(day => {
   return (
     <span>
       <time className={styles.time}><span>{day.day}:</span> {opening} - {closing}</time>
-      <br />
+      <br/>
     </span>
   )
 })
-
 
 export const query = graphql`
     query($id: String!) {
@@ -67,9 +66,12 @@ export const query = graphql`
                 }
             }
             image {
-                file {
-                    original
-                    thumbnail
+                localFile {
+                    childImageSharp {
+                        resolutions(width: 1600, height: 600) {
+                            ...GatsbyImageSharpResolutions_withWebp
+                        }
+                    }
                 }
             }
             hoursOfOperation {

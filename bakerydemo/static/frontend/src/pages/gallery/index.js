@@ -12,7 +12,7 @@ export default ({ data }) => {
             {gallery.map(({ node }) => {
                 return (
                     <div key={node.id}>
-                        <Hero image={getMediaUrl(node.image.file.original)} title={node.title} />
+                        <Hero image={node.image.localFile.childImageSharp.resolutions} title={node.title} />
                         <div className={styles.container}>
                             <h2>{node.introduction}</h2>
                         </div>
@@ -32,8 +32,12 @@ export const query = graphql`
                     title
                     introduction
                     image {
-                        file {
-                            original
+                        localFile {
+                            childImageSharp {
+                                resolutions(width: 1600, height: 600) {
+                                    ...GatsbyImageSharpResolutions_withWebp
+                                }
+                            }
                         }
                     }
                 }

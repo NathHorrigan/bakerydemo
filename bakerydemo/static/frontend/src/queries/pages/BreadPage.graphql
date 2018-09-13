@@ -1,0 +1,17 @@
+fragment BreadPage {
+    id
+    title
+    slug
+    urlPath
+    introduction
+    body
+    origin {
+        title
+    }
+    breadType {
+        title
+    }
+    image {
+        file
+    }
+}

@@ -21,6 +21,7 @@
 
 .locationImageContainer:hover {
     background-color: $accent;
+    height: 350px;
 }
 
 .locationImageContainer:hover .locationImage {
@@ -28,12 +29,15 @@
 }
 
 .locationImage {
-    width: 100%;
-    height: auto;
-    max-height: 270px;
-    object-fit: cover;
-    object-position: bottom;
+    width: 100% !important;
+    height: 100%;
+    min-height: auto !important;
     transition: opacity 0.2s ease;
+
+    &Outer {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 .locationHeader {

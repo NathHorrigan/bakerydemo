@@ -1,119 +1,121 @@
-{
-  pages {
-    specific {
-      __typename
-
-      ... on HomePage {
-        id
-        title
-        slug
-        urlPath
-        body
-        image {
-          file
+query($updatedAfter: String) {
+  pages(updatedAfter: $updatedAfter) {
+    edges {
+      node {
+        specific {
+          __typename
+          ... on HomePage {
+            id
+            title
+            slug
+            urlPath
+            body
+            image {
+              __typename
+              file
+            }
+            promoText
+            promoTitle
+            promoImage {
+              __typename
+              file
+            }
+            heroText
+            heroCta
+            heroCtaLink {
+              urlPath
+            }
+            featuredSection1Title
+            featuredSection2Title
+            featuredSection3Title
+          }
+          ... on BreadPage {
+            id
+            title
+            slug
+            urlPath
+            introduction
+            body
+            origin {
+              title
+            }
+            breadType {
+              title
+            }
+            image {
+              __typename
+              file
+            }
+          }
+          ... on LocationPage {
+            id
+            title
+            slug
+            urlPath
+            introduction
+            body
+            address
+            latLong
+            image {
+              __typename
+              file
+            }
+            hoursOfOperation {
+              day
+              openingTime
+              closingTime
+            }
+          }
+          ... on StandardPage {
+            id
+            title
+            slug
+            urlPath
+            introduction
+            body
+            image {
+              __typename
+              file
+            }
+          }
+          ... on BlogPage {
+            id
+            title
+            slug
+            urlPath
+            introduction
+            body
+            datePublished
+            tags
+            subtitle
+            image {
+              __typename
+              file
+            }
+          }
+          ... on Page {
+            id
+            title
+            slug
+            urlPath
+          }
+          ... on FormPage {
+            id
+            title
+            body
+          }
+          ... on GalleryPage {
+            id
+            title
+            body
+            introduction
+            image {
+              __typename
+              file
+            }
+          }
         }
-        promoText
-        promoTitle
-        promoImage {
-          file
-        }
-        heroText
-        heroCta
-        heroCtaLink {
-          urlPath
-        }
-        featuredSection1Title
-        featuredSection2Title
-        featuredSection3Title
       }
-
-      ... on BreadPage {
-        id
-        title
-        slug
-        urlPath
-        introduction
-        body
-        origin {
-          title
-        }
-        breadType {
-          title
-        }
-        image {
-          file
-        }
-      }
-
-      ... on LocationPage {
-        id
-        title
-        slug
-        urlPath
-        introduction
-        body
-        address
-        latLong
-        image {
-          file
-        }
-        hoursOfOperation {
-            day
-            openingTime
-            closingTime
-        }
-      }
-
-      ... on StandardPage {
-        id
-        title
-        slug
-        urlPath
-        introduction
-        body
-        image {
-          file
-        }
-      }
-
-      ... on BlogPage {
-        id
-        title
-        slug
-        urlPath
-        introduction
-        body
-        datePublished
-        tags
-        subtitle
-        image {
-          file
-        }
-      }
-
-      ... on Page {
-        id
-        title
-        slug
-        urlPath
-      }
-
-      ... on FormPage {
-        id
-        title
-        body
-      }
-
-      ... on GalleryPage {
-        id
-        title
-        body
-        introduction
-        image {
-          file
-        }
-      }
-
     }
   }
 }

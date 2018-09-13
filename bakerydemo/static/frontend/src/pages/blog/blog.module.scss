@@ -2,8 +2,9 @@
 
 .blogContainer {
     display: grid;
-    grid-gap: 30px;
-    margin: 2rem 0;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin: 2rem 2rem 0 2rem;
     @include for-tablet-portrait-up {
         grid-template-columns: 1fr 1fr;
     }
@@ -16,6 +17,9 @@
 .blog {
     position: relative;
     text-decoration: none;
+    min-height: 100%;
+    height: auto;
+
     @include for-tablet-landscape-up {
         display: flex;
         flex-direction: column;
@@ -32,17 +36,17 @@
 }
 
 .blogImage {
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
+    width: 100% !important;
+    min-height: auto !important;
 }
 
 .blogText {
+    flex: 1;
     background: linear-gradient(180deg,hsla(0,0%,100%,0) 0%,#000 30%);
     background-color: transparent;
     bottom: 0;
-    padding: 40px 20px 20px 20px;
-    margin-top: -150px;
+    padding: 60px 20px 20px 20px;
+    margin-top: -125px;
     position: relative;
     z-index: 1;
 }

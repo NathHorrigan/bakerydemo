@@ -5,6 +5,7 @@ import StreamField from '@components/streamfield'
 import { getMediaUrl } from '@util/urls'
 
 import styles from './bread.module.scss'
+import Img from 'gatsby-image'
 
 export default (props) => {
     const bread = props.data.page
@@ -22,7 +23,7 @@ export default (props) => {
                             </div>
                         </div>
 
-                        <img className={styles.breadImg} src={getMediaUrl(bread.image.file.original)} alt=""/>
+                        <Img className={styles.breadImg} resolutions={bread.image.localFile.childImageSharp.resolutions} alt=""/>
 
                         <section className={styles.breadMeta}>
                             <span className={styles.breadMetaRow}>
@@ -60,9 +61,12 @@ export const query = graphql`
                 title
             }
             image {
-                file {
-                    original
-                    thumbnail
+                localFile {
+                  childImageSharp {
+                      resolutions(height: 350) {
+                          ...GatsbyImageSharpResolutions_withWebp
+                      }
+                  }
                 }
             }
         }

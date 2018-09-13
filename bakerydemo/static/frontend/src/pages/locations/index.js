@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
+import Img from 'gatsby-image'
 import Layout from '@components/layout'
 import styles from './locations.module.scss'
 
@@ -21,7 +22,10 @@ const layout = data => {
               <div key={node.id}>
                 <Link to={`/locations/${node.slug}`}>
                   <div className={styles.locationImageContainer}>
-                    <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)} alt="" />
+                    <Img
+                      className={styles.locationImage}
+                      outerWrapperClassName={styles.locationImageOuter}
+                      resolutions={node.image.localFile.childImageSharp.resolutions} alt="" />
                     <h3 className={styles.locationHeader}>{node.title}</h3>
                   </div>
                 </Link>
@@ -48,9 +52,12 @@ export default () => <StaticQuery
                       address
                       latLong
                       image {
-                          file {
-                              original
-                              thumbnail
+                          localFile {
+                              childImageSharp {
+                                  resolutions(height: 350) {
+                                      ...GatsbyImageSharpResolutions_withWebp
+                                  }
+                              }
                           }
                       }
                   }
